@@ -1,24 +1,78 @@
-﻿import cert1 from "@/assets/certificados/cert-1.jpeg.asset.json";
-import cert2 from "@/assets/certificados/cert-2.jpeg.asset.json";
-import cert3 from "@/assets/certificados/cert-3.jpeg.asset.json";
-import cert4 from "@/assets/certificados/cert-4.jpeg.asset.json";
-import cert5 from "@/assets/certificados/cert-5.jpeg.asset.json";
-import cert6 from "@/assets/certificados/cert-6.jpeg.asset.json";
-import cert7 from "@/assets/certificados/cert-7.jpeg.asset.json";
-import cert8 from "@/assets/certificados/cert-8.jpeg.asset.json";
-import cert9 from "@/assets/certificados/cert-9.jpeg.asset.json";
-import cert10 from "@/assets/certificados/cert-10.jpeg.asset.json";
-import cert11 from "@/assets/certificados/cert-11.jpeg.asset.json";
-import cert12 from "@/assets/certificados/cert-12.jpeg.asset.json";
-import cert13 from "@/assets/certificados/cert-13.jpeg.asset.json";
-import cert14 from "@/assets/certificados/cert-14.jpeg.asset.json";
-import cert15 from "@/assets/certificados/cert-15.jpeg.asset.json";
-import cert16 from "@/assets/certificados/cert-16.jpeg.asset.json";
-import cert17 from "@/assets/certificados/cert-17.jpeg.asset.json";
-import cert18 from "@/assets/certificados/cert-18.jpeg.asset.json";
+export interface CertificacaoOficial {
+  sigla: string;
+  titulo: string;
+  entidade: string;
+  descricao: string;
+  tipo: "artes-marciais" | "educacao-fisica" | "saude";
+  anoOuGrau: string;
+}
 
-export const CERTIFICADOS = [
-  cert1.url, cert2.url, cert3.url, cert4.url, cert5.url, cert6.url,
-  cert7.url, cert8.url, cert9.url, cert10.url, cert11.url, cert12.url,
-  cert13.url, cert14.url, cert15.url, cert16.url, cert17.url, cert18.url,
+export const CERTIFICACOES_OFICIAIS: CertificacaoOficial[] = [
+  {
+    sigla: "CBJJE",
+    titulo: "Faixa Preta 6º Grau",
+    entidade: "Confederação Brasileira de Jiu-Jitsu Esportivo",
+    descricao: "Graduação de alto mestre expedida pela maior confederação esportiva do país.",
+    tipo: "artes-marciais",
+    anoOuGrau: "6º Grau",
+  },
+  {
+    sigla: "CBJJ / IBJJF",
+    titulo: "Faixa Preta 5º Grau",
+    entidade: "International Brazilian Jiu-Jitsu Federation",
+    descricao: "Reconhecimento internacional e filiação às máximas entidades mundiais de Jiu-Jitsu.",
+    tipo: "artes-marciais",
+    anoOuGrau: "5º Grau",
+  },
+  {
+    sigla: "AJP",
+    titulo: "Certificação Internacional Faixa Preta",
+    entidade: "Abu Dhabi Jiu-Jitsu Pro",
+    descricao: "Homologação internacional para atuação em competições e formação de atletas de elite.",
+    tipo: "artes-marciais",
+    anoOuGrau: "Oficial",
+  },
+  {
+    sigla: "CREF",
+    titulo: "Bacharel & Licenciatura Plena",
+    entidade: "Conselho Regional de Educação Física (007180-G/PB)",
+    descricao: "Habilitação formal para prescrição, orientação e condução de treinamentos esportivos.",
+    tipo: "educacao-fisica",
+    anoOuGrau: "007180-G/PB",
+  },
+  {
+    sigla: "CORE 360º",
+    titulo: "Treinador Funcional Certificado",
+    entidade: "Core 360º Training System",
+    descricao: "Especialização em padrões fundamentais de movimento, estabilização e performance.",
+    tipo: "educacao-fisica",
+    anoOuGrau: "Certificado",
+  },
+  {
+    sigla: "PILATES",
+    titulo: "Instrutor Internacional de Pilates",
+    entidade: "Metodologia Clássica & Aparelhos",
+    descricao: "Capacitação completa em Reformer, Cadillac, Chair, Barrel e Mat Pilates.",
+    tipo: "saude",
+    anoOuGrau: "Studio & Solo",
+  },
+  {
+    sigla: "3ª IDADE",
+    titulo: "Prescrição para Longevidade",
+    entidade: "Fisiologia & Treinamento Adaptado",
+    descricao: "Especialização em prevenção de sarcopenia, osteoporose e manutenção da autonomia motora.",
+    tipo: "saude",
+    anoOuGrau: "Especialista",
+  },
+  {
+    sigla: "FISIO",
+    titulo: "Biomecânica & Prevenção de Lesões",
+    entidade: "Extensão em Fisioterapia Esportiva",
+    descricao: "Conhecimento avançado em alinhamento cinemático, reabilitação articular e correção postural.",
+    tipo: "saude",
+    anoOuGrau: "Extensão",
+  },
 ];
+
+// Compatibilidade retroativa
+export const CERTIFICADOS: string[] = [];

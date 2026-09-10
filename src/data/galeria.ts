@@ -1,16 +1,18 @@
-﻿import e1 from "@/assets/equipe/equipe-34_1.jpg.asset.json";
-import e2 from "@/assets/equipe/equipe-34_2.jpg.asset.json";
-import e3 from "@/assets/equipe/equipe-34_3.jpg.asset.json";
-import e4 from "@/assets/equipe/equipe-34_4.jpg.asset.json";
-import e5 from "@/assets/equipe/equipe-35.jpg.asset.json";
-import e6 from "@/assets/equipe/equipe-34.jpg.asset.json";
+import radamesComunidade from "@/assets/professores/professor-radames-aniversario.jpg";
+import jiuJitsuKids from "@/assets/jiujitsu/jiujitsu-kids.jpg";
+import jiuJitsuTatame from "@/assets/jiujitsu/jiujitsu-tatame-horarios.jpg";
+import jiuJitsuFeminino from "@/assets/jiujitsu/jiujitsu-feminino.jpg";
+import renallyDestaque from "@/assets/professores/personal-renally-destaque.png";
+import marcosImg from "@/assets/professores/personal-marcos.jpg";
+import biomecanicaImg from "@/assets/musculacao/post-treino-pernas.png";
 import { ImageGalleryItem } from "@/types";
 
 export const GALERIA_EQUIPE: ImageGalleryItem[] = [
-  { src: e5.url, alt: "Turma WCF Jiu-Jitsu reunida" },
-  { src: e2.url, alt: "Equipe WCF Jiu-Jitsu - alunos e professores" },
-  { src: e3.url, alt: "Família WCF no tatame" },
-  { src: e1.url, alt: "Alunas faixa-preta e graduadas da WCF" },
-  { src: e4.url, alt: "Turma adulta WCF" },
-  { src: e6.url, alt: "Professor Wilson na sede WCF Jiu-Jitsu PB" },
+  { src: radamesComunidade, alt: "Comunidade e celebrações WCF Academia - Alunos e Professor Radamés" },
+  { src: jiuJitsuKids, alt: "Jiu-Jitsu Kids - Formação infantil e disciplina no tatame" },
+  { src: jiuJitsuTatame, alt: "Treinos e graduação da família WCF Jiu-Jitsu" },
+  { src: jiuJitsuFeminino, alt: "Turma de Jiu-Jitsu Feminino e autodefesa WCF" },
+  { src: renallyDestaque, alt: "Acompanhamento profissional e prescrição de treinos com Personal Trainer" },
+  { src: marcosImg, alt: "Orientação técnica e musculação com Personal Marcos" },
+  { src: biomecanicaImg, alt: "Biomecânica e execução técnica de movimentos" },
 ];

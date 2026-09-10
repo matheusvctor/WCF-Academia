@@ -1,41 +1,56 @@
-﻿import { useRef } from "react";
-import Autoplay from "embla-carousel-autoplay";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
-import { CERTIFICADOS } from "@/data/certificados";
+import { CERTIFICACOES_OFICIAIS } from "@/data/certificados";
 import { SectionHeader } from "@/components/common/SectionHeader";
+import { Award, ShieldCheck, CheckCircle2 } from "lucide-react";
 
 export const CertificadosSection = () => {
-  const autoplay = useRef(Autoplay({ delay: 2500, stopOnInteraction: false, stopOnMouseEnter: true }));
-
   return (
-    <section id="certificados" className="py-14 md:py-24 border-t border-border/50">
-      <div className="container mx-auto">
+    <section id="certificados" className="py-14 md:py-24 border-t border-border/50 bg-background/50 relative overflow-hidden">
+      <div className="container mx-auto px-4">
         <SectionHeader
-          label="Credenciais"
-          title={<>Certificações <span className="text-gradient-gold">reais.</span></>}
-          description="Faixa Preta 6º Grau pela CBJJE e CBJJP, 5º Grau pela CBJJ, IBJJF e AJP, além de certificações em educação física, pilates, Core 360 e treinamento para terceira idade."
+          label="Credenciais Oficiais"
+          title={
+            <>
+              Certificações & Habilitações <span className="text-gradient-gold">Reais.</span>
+            </>
+          }
+          description="Formação acadêmica e reconhecimento máximo pelas maiores entidades esportivas nacionais e internacionais."
+          className="mb-12"
         />
 
-        <Carousel
-          opts={{ loop: true, align: "start" }}
-          plugins={[autoplay.current]}
-          className="w-full"
-        >
-          <CarouselContent className="-ml-4">
-            {CERTIFICADOS.map((url, i) => (
-              <CarouselItem key={i} className="pl-4 basis-3/4 sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
-                <div className="aspect-[3/4] overflow-hidden rounded-2xl border border-border bg-card group">
-                  <img
-                    src={url}
-                    alt={`Certificado ${i + 1} - Wilson Camara Filho`}
-                    loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          {CERTIFICACOES_OFICIAIS.map((c, i) => (
+            <div
+              key={i}
+              className="p-5 sm:p-6 rounded-2xl glass border border-border/80 hover:border-primary/40 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 shadow-lg"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-xs font-heading font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-primary/10 text-primary border border-primary/20">
+                    {c.sigla}
+                  </span>
+                  <span className="text-[11px] font-semibold text-amber-400 flex items-center gap-1">
+                    <ShieldCheck className="w-3.5 h-3.5" /> {c.anoOuGrau}
+                  </span>
                 </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
+
+                <h4 className="font-heading text-base font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
+                  {c.titulo}
+                </h4>
+                <p className="text-xs font-medium text-muted-foreground mb-3">
+                  {c.entidade}
+                </p>
+                <p className="text-xs text-muted-foreground/80 leading-relaxed">
+                  {c.descricao}
+                </p>
+              </div>
+
+              <div className="mt-4 pt-4 border-t border-border/40 flex items-center gap-1.5 text-[11px] text-primary/90 font-medium">
+                <CheckCircle2 className="w-3.5 h-3.5" />
+                <span>Registro & Habilitação Ativa</span>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

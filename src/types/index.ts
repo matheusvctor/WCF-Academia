@@ -1,4 +1,4 @@
-﻿import { LucideIcon } from "lucide-react";
+import { LucideIcon } from "lucide-react";
 
 export interface Modalidade {
   name: string;
@@ -10,7 +10,18 @@ export interface Modalidade {
 export interface Professor {
   nome: string;
   horario: string;
+  turno?: string;
   src: string;
+}
+
+export interface JiuJitsuFeature {
+  title: string;
+  subtitle: string;
+  badge?: string;
+  price?: string;
+  description: string;
+  image: string;
+  highlights: string[];
 }
 
 export interface UnidadeCertificado {

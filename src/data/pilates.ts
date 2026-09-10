@@ -1,20 +1,45 @@
-﻿import p1 from "@/assets/pilates/pilates-01.jpg.asset.json";
-import p2 from "@/assets/pilates/pilates-02.jpg.asset.json";
-import p3 from "@/assets/pilates/pilates-03.jpg.asset.json";
-import p4 from "@/assets/pilates/pilates-04.jpg.asset.json";
-import p5 from "@/assets/pilates/pilates-05.jpg.asset.json";
-import p6 from "@/assets/pilates/pilates-06.jpg.asset.json";
-import p7 from "@/assets/pilates/pilates-07.jpg.asset.json";
-import p8 from "@/assets/pilates/pilates-08.jpg.asset.json";
+import studioBanner from "@/assets/banners/banner-pilates-qualidade.png";
+import soloPoster from "@/assets/aulas/aula-pilates-solo.jpg";
+import longevidadeBanner from "@/assets/banners/banner-saude-longevidade.png";
+import comecoZeroBanner from "@/assets/banners/banner-comeco-zero.png";
 import { ImageGalleryItem } from "@/types";
 
+export const PILATES_STUDIO_INFO = {
+  bannerImage: studioBanner,
+  soloImage: soloPoster,
+  tagline: "Seu corpo sente. Sua mente agradece.",
+  beneficios: [
+    {
+      titulo: "Melhora da Postura",
+      descricao: "Alinhamento da coluna vertebral, correção biomecânica e eliminação de vícios posturais.",
+    },
+    {
+      titulo: "Mais Flexibilidade & Mobilidade",
+      descricao: "Ganho de amplitude articular, elasticidade muscular e maior liberdade de movimentos.",
+    },
+    {
+      titulo: "Alívio Efetivo das Dores",
+      descricao: "Alívio significativo de dores lombares, tensões cervicais e reabilitação muscular segura.",
+    },
+    {
+      titulo: "Fortalecimento do Core",
+      descricao: "Ativação da musculatura profunda (Powerhouse), proporcionando sustentação e equilíbrio.",
+    },
+  ],
+  aparelhos: [
+    "Reformer Clássico",
+    "Cadillac",
+    "Step Chair",
+    "Ladder Barrel",
+    "Pilates Solo (Mat Pilates)",
+    "Acessórios (Magic Circle, Foam Roller, Bolas)",
+  ],
+  horarioSolo: "Terças e Quintas às 18h40 · Instrutor Romero Mota",
+};
+
 export const FOTOS_PILATES: ImageGalleryItem[] = [
-  { src: p1.url, alt: "Aula de Pilates no reformer WCF - alongamento com bola" },
-  { src: p2.url, alt: "Pilates WCF com instrutora acompanhando alunos" },
-  { src: p3.url, alt: "Treino de Pilates no reformer com bola de estabilidade" },
-  { src: p4.url, alt: "Aula coletiva de Pilates na WCF Academia" },
-  { src: p5.url, alt: "Pilates no reformer - fortalecimento corporal" },
-  { src: p6.url, alt: "Instrutora de Pilates orientando posição no reformer" },
-  { src: p7.url, alt: "Alunos praticando Pilates com acompanhamento profissional" },
-  { src: p8.url, alt: "Aula de Pilates na WCF - postura e flexibilidade" },
+  { src: studioBanner, alt: "Pilates Reformer e aparelhos clássicos WCF" },
+  { src: soloPoster, alt: "Pilates Solo e Alongamento com Romero Mota" },
+  { src: longevidadeBanner, alt: "Saúde articular, postura e longevidade funcional" },
+  { src: comecoZeroBanner, alt: "Aulas para iniciantes, intermediários e avançados" },
 ];

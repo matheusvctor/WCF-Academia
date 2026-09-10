@@ -1,18 +1,66 @@
-﻿import jiuJitsuAsset from "@/assets/academia/img-1894.jpg.asset.json";
-import musculacaoAsset from "@/assets/academia/img-1890.jpg.asset.json";
-import musculacao2Asset from "@/assets/academia/img-1899.jpg.asset.json";
-import pilatesAsset from "@/assets/pilates/pilates-01.jpg.asset.json";
-import spinningAsset from "@/assets/academia/img-1892.jpg.asset.json";
-import cardioAsset from "@/assets/academia/img-1901.jpg.asset.json";
-import kidsAsset from "@/assets/academia/img-1903.jpg.asset.json";
+import jiuJitsuKidsAsset from "@/assets/jiujitsu/jiujitsu-kids.jpg";
+import musculacaoAsset from "@/assets/musculacao/post-treino-pernas.png";
+import pilatesAsset from "@/assets/banners/banner-pilates-qualidade.png";
+import spinningAsset from "@/assets/aulas/aula-spinning.jpg";
+import stepAsset from "@/assets/aulas/aula-step.jpg";
+import muayThaiAsset from "@/assets/aulas/aula-muaythai.jpg";
+import localizadaAsset from "@/assets/aulas/aula-localizada.jpg";
+import jiuJitsuAsset from "@/assets/jiujitsu/jiujitsu-tatame-horarios.jpg";
 import { Modalidade } from "@/types";
 
 export const MODALIDADES: Modalidade[] = [
-  { name: "Jiu-Jitsu", tag: "Luta", desc: "Técnica e disciplina no tatame oficial WCF. Para todos os níveis.", image: jiuJitsuAsset.url },
-  { name: "Musculação", tag: "Força", desc: "Sala equipada com máquinas e pesos livres para hipertrofia e saúde.", image: musculacaoAsset.url },
-  { name: "Pilates", tag: "Bem-estar", desc: "Estúdio WCF Pilates completo: reformer, cadillac, chair e barrel.", image: pilatesAsset.url },
-  { name: "Spinning", tag: "Grupo", desc: "Aulas em grupo com bikes profissionais. Energia e queima de calorias.", image: spinningAsset.url },
-  { name: "Cardio", tag: "Condicionamento", desc: "Esteiras e bikes ergométricas com vista. Condicionamento cardiovascular.", image: cardioAsset.url },
-  { name: "Funcional", tag: "Treino", desc: "Treinamento funcional com acompanhamento de personal.", image: musculacao2Asset.url },
-  { name: "Espaço Kids", tag: "Família", desc: "Espaço infantil para você treinar tranquilo enquanto as crianças se divertem.", image: kidsAsset.url },
+  {
+    name: "Musculação",
+    tag: "Força & Saúde",
+    desc: "Equipamentos profissionais e 5 personais de plantão cobrindo das 05h à 00h para o seu melhor treino.",
+    image: musculacaoAsset,
+  },
+  {
+    name: "Jiu-Jitsu Kids",
+    tag: "Infantil & Disciplina",
+    desc: "Tatame seguro, foco, respeito e 1ª Mensalidade FREE para crianças de até 10 anos.",
+    image: jiuJitsuKidsAsset,
+  },
+  {
+    name: "Studio Pilates",
+    tag: "Postura & Bem-estar",
+    desc: "Estúdio completo com Reformer, Cadillac, Chair e Barrel, além de aulas de Pilates Solo e Alongamento.",
+    image: pilatesAsset,
+  },
+  {
+    name: "Spinning",
+    tag: "Cardio Intenso",
+    desc: "Sessões dinâmicas com bikes profissionais todas as terças às 19h30. Alta queima calórica.",
+    image: spinningAsset,
+  },
+  {
+    name: "Aulão de Step",
+    tag: "Ritmo & Queima",
+    desc: "Aulas coletivas cheias de energia às segundas e quartas às 19h00 com instrutores dedicados.",
+    image: stepAsset,
+  },
+  {
+    name: "Muay Thai",
+    tag: "Arte Marcial",
+    desc: "Defesa, agilidade e condicionamento extremo às terças e quintas às 18h00.",
+    image: muayThaiAsset,
+  },
+  {
+    name: "Aula Localizada",
+    tag: "Definição",
+    desc: "Fortalecimento muscular e resistência localizada todas as sextas às 19h00.",
+    image: localizadaAsset,
+  },
+  {
+    name: "Jiu-Jitsu Adulto",
+    tag: "Tatame Oficial",
+    desc: "Aulas técnicas com mestre graduado, turmas masculinas e femininas com mensalidade a partir de R$ 60.",
+    image: jiuJitsuAsset,
+  },
+  {
+    name: "Espaço Kids",
+    tag: "Família",
+    desc: "Espaço infantil exclusivo para você treinar com tranquilidade enquanto seus filhos se divertem.",
+    image: jiuJitsuKidsAsset,
+  },
 ];

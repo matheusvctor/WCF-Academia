@@ -1,4 +1,4 @@
-﻿export const SITE_INFO = {
+export const SITE_INFO = {
   name: "WCF Academia",
   shortName: "WCF",
   tagline: "Sua melhor versão começa aqui.",
@@ -27,11 +27,13 @@
 } as const;
 
 export const NAV_LINKS = [
-  { label: "Modalidades", href: "#modalidades" },
-  { label: "Sobre", href: "#sobre" },
-  { label: "Horários", href: "#horarios" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contato", href: "#contato" },
+  { label: "Início", href: "/" },
+  { label: "Modalidades", href: "/modalidades" },
+  { label: "Studio Pilates", href: "/pilates" },
+  { label: "Jiu-Jitsu Kids", href: "/jiu-jitsu" },
+  { label: "Equipe", href: "/equipe" },
+  { label: "Horários", href: "/horarios" },
+  { label: "Contato", href: "/contato" },
 ] as const;
 
 export function getWhatsAppUrl(message = "Olá! Quero agendar uma aula grátis na WCF Academia!"): string {

@@ -1,18 +1,31 @@
-﻿import m1 from "@/assets/musculacao/musc-05.jpeg.asset.json";
-import m2 from "@/assets/musculacao/musc-06.jpeg.asset.json";
-import m3 from "@/assets/musculacao/musc-07.jpeg.asset.json";
-import m4 from "@/assets/musculacao/musc-08.jpeg.asset.json";
-import m5 from "@/assets/musculacao/musc-09.jpeg.asset.json";
-import m6 from "@/assets/musculacao/musc-09_1.jpeg.asset.json";
-import m7 from "@/assets/musculacao/musc-13.jpeg.asset.json";
+import biomecanicaPoster from "@/assets/musculacao/post-treino-pernas.png";
+import saudePoster from "@/assets/banners/banner-saude-longevidade.png";
+import comecarPoster from "@/assets/banners/banner-comecar-dificil.png";
+import comecoZeroPoster from "@/assets/banners/banner-comeco-zero.png";
+import renallyPoster from "@/assets/professores/personal-renally-destaque.png";
+import marcosPoster from "@/assets/professores/personal-marcos.jpg";
+import radamesPoster from "@/assets/professores/personal-radames.jpg";
 import { ImageGalleryItem } from "@/types";
 
+export const MUSCULACAO_HIGHLIGHTS = {
+  biomecanica: {
+    title: "Biomecânica & Ajuste Ergonômico",
+    desc: "Aprenda a treinar sem erros posturais. Nossos professores garantem amplitude correta, cadência e segurança total na execução.",
+    image: biomecanicaPoster,
+  },
+  longevidade: {
+    title: "Idade Não Limita. Movimento Liberta.",
+    desc: "Musculação para a maturidade: ganho de massa magra, prevenção de osteoporose, autonomia funcional e vitalidade em qualquer fase da vida.",
+    image: saudePoster,
+  },
+};
+
 export const FOTOS_MUSCULACAO: ImageGalleryItem[] = [
-  { src: m1.url, alt: "Área de musculação WCF - máquinas Vitally e Impact" },
-  { src: m2.url, alt: "Leg press e cadeira extensora Supreme" },
-  { src: m3.url, alt: "Equipamentos Supreme - leg press 45 e hack" },
-  { src: m4.url, alt: "Espaço de pesos livres, halteres e funcional" },
-  { src: m5.url, alt: "Sala de musculação WCF com alunos treinando" },
-  { src: m6.url, alt: "Equipamentos Supreme com vista para a rua" },
-  { src: m7.url, alt: "Área de halteres e cross over WCF Academia" },
+  { src: biomecanicaPoster, alt: "Biomecânica e execução de pernas na WCF Academia" },
+  { src: saudePoster, alt: "Longevidade, saúde e autonomia funcional" },
+  { src: comecarPoster, alt: "Motivação e musculação para todos os níveis" },
+  { src: comecoZeroPoster, alt: "Inicie seus treinos com acompanhamento profissional" },
+  { src: renallyPoster, alt: "Prescrição individualizada e consultoria de treino" },
+  { src: marcosPoster, alt: "Acompanhamento no salão de musculação com Personal Marcos" },
+  { src: radamesPoster, alt: "Suporte contínuo no salão de musculação com Personal Radamés" },
 ];
