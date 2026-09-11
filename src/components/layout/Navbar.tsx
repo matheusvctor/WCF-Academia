@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import logo from "@/assets/logo-wcf-real.jpg";
+import logo from "@/assets/logo-wcf-real.webp";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { SITE_INFO, NAV_LINKS, getWhatsAppUrl } from "@/constants/site";
 

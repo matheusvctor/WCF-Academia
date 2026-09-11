@@ -1,22 +1,11 @@
-import { useState, useRef } from "react";
-import Autoplay from "embla-carousel-autoplay";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import { FOTOS_MUSCULACAO, MUSCULACAO_HIGHLIGHTS } from "@/data/musculacao";
+import { useState } from "react";
+import { MUSCULACAO_HIGHLIGHTS } from "@/data/musculacao";
 import { SectionHeader } from "@/components/common/SectionHeader";
-import { Dumbbell, HeartPulse, CheckCircle2 } from "lucide-react";
+import { Dumbbell, HeartPulse, CheckCircle2, ShieldCheck, Sparkles, Activity, Layers } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 
 export const MusculacaoSection = () => {
   const [selectedImg, setSelectedImg] = useState<string | null>(null);
-  const autoplay = useRef(
-    Autoplay({ delay: 3500, stopOnInteraction: false, stopOnMouseEnter: true })
-  );
 
   return (
     <section id="musculacao" className="py-16 md:py-24 border-t border-border/50 relative overflow-hidden bg-background">
@@ -28,7 +17,7 @@ export const MusculacaoSection = () => {
               Área Principal de <span className="text-gradient-red">Musculação</span> & Biomecânica.
             </>
           }
-          description="Equipamentos profissionais Supreme, Vitally e Impact — sala climatizada, pesos livres completos e 5 personais de plantão para orientar sua execução."
+          description="Equipamentos profissionais Supreme, Vitally e Impact — sala climatizada, pesos livres completos e suporte técnico para orientar sua execução com segurança."
           className="mb-12"
         />
 
@@ -72,7 +61,7 @@ export const MusculacaoSection = () => {
           {/* Card 2: Longevidade & Terceira Idade */}
           <div className="glass rounded-3xl border border-border/80 p-6 sm:p-8 flex flex-col justify-between shadow-xl">
             <div className="space-y-3 mb-6">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-heading font-bold uppercase tracking-wider bg-amber-500/10 text-amber-400 border border-amber-500/20">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-heading font-bold uppercase tracking-wider bg-primary/10 text-primary border border-primary/20">
                 <HeartPulse className="w-3.5 h-3.5" /> Longevidade & Autonomia
               </span>
               <h3 className="text-xl sm:text-2xl font-heading font-bold text-foreground">
@@ -99,47 +88,57 @@ export const MusculacaoSection = () => {
             </div>
 
             <div className="mt-6 pt-4 border-t border-border/50 flex items-center gap-2 text-xs text-muted-foreground">
-              <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
+              <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
               <span>Atendimento acolhedor e seguro para iniciantes e terceira idade</span>
             </div>
           </div>
         </div>
 
-        {/* Galeria de Fotos dos Equipamentos */}
-        <div>
+        {/* Destaque das Linhas de Equipamentos e Ambiente */}
+        <div className="glass rounded-3xl border border-border/80 p-6 sm:p-8">
           <div className="mb-6">
-            <h4 className="font-heading text-lg font-bold text-foreground">Equipamentos e Ambiente do Salão</h4>
-            <p className="text-xs text-muted-foreground">Linhas de ponta Supreme, Vitally e Impact para todos os grupos musculares.</p>
+            <h4 className="font-heading text-lg sm:text-xl font-bold text-foreground">Equipamentos e Ambiente do Salão</h4>
+            <p className="text-xs sm:text-sm text-muted-foreground">Estrutura completa com linhas profissionais para todos os grupos musculares e níveis de treino.</p>
           </div>
 
-          <Carousel
-            opts={{ loop: true, align: "start" }}
-            plugins={[autoplay.current]}
-            className="w-full relative"
-          >
-            <CarouselContent className="-ml-3">
-              {FOTOS_MUSCULACAO.map((f, i) => (
-                <CarouselItem
-                  key={i}
-                  className="pl-3 basis-4/5 sm:basis-1/2 lg:basis-1/3"
-                >
-                  <div
-                    className="overflow-hidden rounded-2xl border border-border aspect-[4/3] bg-card cursor-pointer group"
-                    onClick={() => setSelectedImg(f.src)}
-                  >
-                    <img
-                      src={f.src}
-                      alt={f.alt}
-                      loading="lazy"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="hidden md:flex -left-4" />
-            <CarouselNext className="hidden md:flex -right-4" />
-          </Carousel>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="p-4 rounded-xl bg-card border border-border/60 flex flex-col justify-between">
+              <div>
+                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-3">
+                  <Layers className="w-4 h-4" />
+                </div>
+                <div className="font-heading font-bold text-foreground text-sm mb-1">Linhas Supreme & Vitally</div>
+                <p className="text-xs text-muted-foreground leading-relaxed">Aparelhos com biomecânica avançada para isolamento neuromuscular preciso.</p>
+              </div>
+            </div>
+            <div className="p-4 rounded-xl bg-card border border-border/60 flex flex-col justify-between">
+              <div>
+                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-3">
+                  <Activity className="w-4 h-4" />
+                </div>
+                <div className="font-heading font-bold text-foreground text-sm mb-1">Linha Impact Articulada</div>
+                <p className="text-xs text-muted-foreground leading-relaxed">Máquinas articuladas de alta carga com amplitude ajustável e máxima segurança.</p>
+              </div>
+            </div>
+            <div className="p-4 rounded-xl bg-card border border-border/60 flex flex-col justify-between">
+              <div>
+                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-3">
+                  <Dumbbell className="w-4 h-4" />
+                </div>
+                <div className="font-heading font-bold text-foreground text-sm mb-1">Espaço de Pesos Livres</div>
+                <p className="text-xs text-muted-foreground leading-relaxed">Halteres emborrachados até altas cargas, barras olímpicas e bancos anatômicos.</p>
+              </div>
+            </div>
+            <div className="p-4 rounded-xl bg-card border border-border/60 flex flex-col justify-between">
+              <div>
+                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-3">
+                  <Sparkles className="w-4 h-4" />
+                </div>
+                <div className="font-heading font-bold text-foreground text-sm mb-1">Ambiente Climatizado</div>
+                <p className="text-xs text-muted-foreground leading-relaxed">Salão amplo e bem ventilado, piso de alta absorção e iluminação profissional.</p>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Dialog Modal */}

@@ -8,7 +8,6 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { FOTOS_PILATES, PILATES_STUDIO_INFO } from "@/data/pilates";
-import { SectionHeader } from "@/components/common/SectionHeader";
 import { getWhatsAppUrl } from "@/constants/site";
 import { MessageCircle, Sparkles, Check, Activity, Heart, Shield } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
@@ -27,32 +26,21 @@ export const PilatesSection = () => {
   );
 
   return (
-    <section id="pilates" className="py-16 md:py-24 border-t border-border/50 relative overflow-hidden bg-background">
+    <section id="pilates" className="py-12 md:py-16 relative overflow-hidden bg-background">
       {/* Subtle warm glow background */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
-        <SectionHeader
-          label="WCF Studio Pilates & Solo"
-          title={
-            <>
-              Estúdio Completo de <span className="text-gradient-gold">Pilates & Postura</span>.
-            </>
-          }
-          description="Aparelhos clássicos (Reformer, Cadillac, Chair e Barrel) e aulas coletivas de solo — fortalecimento profundo, alinhamento e qualidade de vida."
-          className="mb-12"
-        />
-
         {/* Feature Banner Grid: Pôster Reformer + Pôster Solo */}
         <div className="grid lg:grid-cols-12 gap-8 mb-16 items-stretch">
           {/* Card 1: Banner Principal Studio & Reformer */}
-          <div className="lg:col-span-7 glass rounded-2xl sm:rounded-3xl border border-amber-500/20 p-4 sm:p-6 md:p-8 flex flex-col justify-between relative overflow-hidden shadow-2xl">
+          <div className="lg:col-span-7 glass rounded-2xl sm:rounded-3xl border border-border/80 hover:border-primary/40 p-4 sm:p-6 md:p-8 flex flex-col justify-between relative overflow-hidden shadow-2xl transition-colors">
             <div className="space-y-4 mb-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-heading uppercase tracking-widest">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-heading uppercase tracking-widest">
                 <Sparkles className="w-3.5 h-3.5" /> Studio WCF
               </div>
               <h3 className="text-2xl sm:text-3xl font-heading font-bold text-foreground leading-tight">
-                Seu corpo sente. <span className="text-gradient-gold">Sua mente agradece.</span>
+                Seu corpo sente. <span className="text-gradient-red">Sua mente agradece.</span>
               </h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Mais força, postura e autonomia para o seu dia a dia. No WCF Studio Pilates você conta com atendimento individualizado e turmas reduzidas para máxima evolução e segurança articular.
@@ -81,14 +69,14 @@ export const PilatesSection = () => {
                   key={i}
                   className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs bg-card border border-border/80 text-foreground/90 font-medium"
                 >
-                  <Check className="w-3 h-3 text-amber-400" /> {ap}
+                  <Check className="w-3 h-3 text-primary" /> {ap}
                 </span>
               ))}
             </div>
           </div>
 
           {/* Card 2: Pilates Solo & Aulão */}
-          <div className="lg:col-span-5 glass rounded-2xl sm:rounded-3xl border border-border p-4 sm:p-6 md:p-8 flex flex-col justify-between shadow-xl">
+          <div className="lg:col-span-5 glass rounded-2xl sm:rounded-3xl border border-border hover:border-primary/40 p-4 sm:p-6 md:p-8 flex flex-col justify-between shadow-xl transition-colors">
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-heading uppercase tracking-widest mb-4">
                 Aula Coletiva de Solo
@@ -124,9 +112,9 @@ export const PilatesSection = () => {
                 href={getWhatsAppUrl("Olá! Quero agendar uma aula experimental no Studio Pilates da WCF Academia!")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary glow-gold !bg-amber-600 hover:!bg-amber-500 !text-white w-full text-center !py-3.5 !text-xs uppercase tracking-widest"
+                className="btn-primary glow-red w-full text-center !py-3.5 !text-xs uppercase tracking-widest flex items-center justify-center gap-2"
               >
-                <MessageCircle className="w-4 h-4" />
+                <MessageCircle className="w-4 h-4 shrink-0" />
                 Agendar Experimental Pilates
               </a>
             </div>
@@ -140,9 +128,9 @@ export const PilatesSection = () => {
             return (
               <div
                 key={i}
-                className="p-5 rounded-2xl bg-card/60 border border-border/70 hover:border-amber-500/40 transition-colors duration-300 flex flex-col gap-3"
+                className="p-5 rounded-2xl bg-card/60 border border-border/70 hover:border-primary/40 transition-colors duration-300 flex flex-col gap-3"
               >
-                <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400">
+                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
                   <Icon className="w-5 h-5" />
                 </div>
                 <h4 className="font-heading text-base font-bold text-foreground">{b.titulo}</h4>

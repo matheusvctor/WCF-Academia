@@ -4,11 +4,16 @@ import WhatsAppFloat from "@/components/layout/WhatsAppFloat";
 import ParallaxBanner from "@/components/common/ParallaxBanner";
 import ModalidadesSection from "@/components/sections/ModalidadesSection";
 import MusculacaoSection from "@/components/sections/MusculacaoSection";
-import CTASection from "@/components/sections/CTASection";
-import bannerMusc from "@/assets/musculacao/post-treino-pernas.png";
+import bannerMusc from "@/assets/musculacao/post-treino-pernas.webp";
 import { Dumbbell } from "lucide-react";
+import { usePageTitle } from "@/hooks/usePageTitle";
 
 export const ModalidadesPage = () => {
+  usePageTitle(
+    "Modalidades & Treinos",
+    "Conheça as modalidades da WCF Academia: Musculação das 05h às 00h, Muay Thai, Spinning, Pilates Solo e Step em Campina Grande."
+  );
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -24,7 +29,6 @@ export const ModalidadesPage = () => {
       <main>
         <ModalidadesSection />
         <MusculacaoSection />
-        <CTASection />
       </main>
       <Footer />
       <WhatsAppFloat />

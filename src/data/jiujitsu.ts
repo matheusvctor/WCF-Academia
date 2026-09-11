@@ -1,7 +1,7 @@
-import kidsImg from '@/assets/jiujitsu/jiujitsu-kids.jpg';
-import femininoImg from '@/assets/jiujitsu/jiujitsu-feminino.jpg';
-import individualImg from '@/assets/jiujitsu/jiujitsu-individual.jpg';
-import tatameImg from '@/assets/jiujitsu/jiujitsu-tatame-horarios.jpg';
+import kidsImg from '@/assets/jiujitsu/jiujitsu-kids.webp';
+import femininoImg from '@/assets/jiujitsu/jiujitsu-feminino.webp';
+import individualImg from '@/assets/jiujitsu/jiujitsu-individual.webp';
+import tatameImg from '@/assets/jiujitsu/jiujitsu-tatame-horarios.webp';
 import { JiuJitsuFeature } from '@/types';
 
 export const JIU_JITSU_KIDS_HERO = {

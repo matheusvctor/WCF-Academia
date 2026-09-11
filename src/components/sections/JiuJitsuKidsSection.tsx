@@ -143,12 +143,12 @@ export const JiuJitsuKidsSection = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
                   <div className="absolute top-3 right-3 flex flex-col gap-1 items-end">
                     {m.badge && (
-                      <span className="px-2.5 py-1 rounded-full text-[11px] font-bold font-heading uppercase tracking-wider bg-red-600 text-white shadow">
+                      <span className="px-2.5 py-1 rounded-full text-[11px] font-bold font-heading uppercase tracking-wider bg-primary text-white shadow-md">
                         {m.badge}
                       </span>
                     )}
                     {m.price && (
-                      <span className="px-2.5 py-1 rounded-full text-[11px] font-bold font-heading uppercase tracking-wider bg-amber-500 text-black shadow">
+                      <span className="px-2.5 py-1 rounded-full text-[11px] font-bold font-heading uppercase tracking-wider bg-black/80 text-white border border-primary/40 shadow-md backdrop-blur-md">
                         {m.price}
                       </span>
                     )}

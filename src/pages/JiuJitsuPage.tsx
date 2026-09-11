@@ -3,11 +3,16 @@ import Footer from "@/components/layout/Footer";
 import WhatsAppFloat from "@/components/layout/WhatsAppFloat";
 import ParallaxBanner from "@/components/common/ParallaxBanner";
 import JiuJitsuKidsSection from "@/components/sections/JiuJitsuKidsSection";
-import CTASection from "@/components/sections/CTASection";
-import bannerJiuJitsu from "@/assets/jiujitsu/jiujitsu-tatame-horarios.jpg";
+import bannerJiuJitsu from "@/assets/jiujitsu/jiujitsu-tatame-horarios.webp";
 import { Shield } from "lucide-react";
+import { usePageTitle } from "@/hooks/usePageTitle";
 
 export const JiuJitsuPage = () => {
+  usePageTitle(
+    "Jiu-Jitsu Kids, Feminino & Adulto",
+    "Jiu-Jitsu com Mestre Wilson Camara Filho na WCF. Turmas Kids (1ª mensalidade FREE até 10 anos), Jiu-Jitsu Feminino e Adulto a partir de R$ 60/mês."
+  );
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -22,7 +27,6 @@ export const JiuJitsuPage = () => {
       />
       <main>
         <JiuJitsuKidsSection />
-        <CTASection />
       </main>
       <Footer />
       <WhatsAppFloat />

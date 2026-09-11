@@ -4,11 +4,16 @@ import WhatsAppFloat from "@/components/layout/WhatsAppFloat";
 import ParallaxBanner from "@/components/common/ParallaxBanner";
 import LocalizacaoSection from "@/components/sections/LocalizacaoSection";
 import LeadCaptureSection from "@/components/sections/LeadCaptureSection";
-import CTASection from "@/components/sections/CTASection";
-import bannerContato from "@/assets/banners/banner-saude-longevidade.png";
+import bannerContato from "@/assets/banners/banner-saude-longevidade.webp";
 import { MapPin } from "lucide-react";
+import { usePageTitle } from "@/hooks/usePageTitle";
 
 export const ContatoPage = () => {
+  usePageTitle(
+    "Contato & Localização",
+    "Fale com a WCF Academia no Jardim Paulistano em Campina Grande - PB. Agende sua aula experimental gratuita pelo WhatsApp."
+  );
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -24,7 +29,6 @@ export const ContatoPage = () => {
       <main>
         <LocalizacaoSection />
         <LeadCaptureSection />
-        <CTASection />
       </main>
       <Footer />
       <WhatsAppFloat />

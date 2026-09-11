@@ -1,10 +1,10 @@
-import radamesComunidade from "@/assets/professores/professor-radames-aniversario.jpg";
-import jiuJitsuKids from "@/assets/jiujitsu/jiujitsu-kids.jpg";
-import jiuJitsuTatame from "@/assets/jiujitsu/jiujitsu-tatame-horarios.jpg";
-import jiuJitsuFeminino from "@/assets/jiujitsu/jiujitsu-feminino.jpg";
-import renallyDestaque from "@/assets/professores/personal-renally-destaque.png";
-import marcosImg from "@/assets/professores/personal-marcos.jpg";
-import biomecanicaImg from "@/assets/musculacao/post-treino-pernas.png";
+import radamesComunidade from "@/assets/professores/professor-radames-aniversario.webp";
+import jiuJitsuKids from "@/assets/jiujitsu/jiujitsu-kids.webp";
+import jiuJitsuTatame from "@/assets/jiujitsu/jiujitsu-tatame-horarios.webp";
+import jiuJitsuFeminino from "@/assets/jiujitsu/jiujitsu-feminino.webp";
+import renallyDestaque from "@/assets/professores/personal-renally-destaque.webp";
+import marcosImg from "@/assets/professores/personal-marcos.webp";
+import biomecanicaImg from "@/assets/musculacao/post-treino-pernas.webp";
 import { ImageGalleryItem } from "@/types";
 
 export const GALERIA_EQUIPE: ImageGalleryItem[] = [

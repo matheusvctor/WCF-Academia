@@ -1,7 +1,7 @@
-import studioBanner from "@/assets/banners/banner-pilates-qualidade.png";
-import soloPoster from "@/assets/aulas/aula-pilates-solo.jpg";
-import longevidadeBanner from "@/assets/banners/banner-saude-longevidade.png";
-import comecoZeroBanner from "@/assets/banners/banner-comeco-zero.png";
+import studioBanner from "@/assets/banners/banner-pilates-qualidade.webp";
+import soloPoster from "@/assets/aulas/aula-pilates-solo.webp";
+import longevidadeBanner from "@/assets/banners/banner-saude-longevidade.webp";
+import comecoZeroBanner from "@/assets/banners/banner-comeco-zero.webp";
 import { ImageGalleryItem } from "@/types";
 
 export const PILATES_STUDIO_INFO = {

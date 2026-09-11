@@ -1,4 +1,4 @@
-﻿import { MessageCircle, Zap } from "lucide-react";
+import { MessageCircle, Zap } from "lucide-react";
 import { getWhatsAppUrl } from "@/constants/site";
 
 export const CTASection = () => {
@@ -16,7 +16,7 @@ export const CTASection = () => {
         <h2 className="font-heading text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 leading-[1.05]">
           Sua transformação
           <br />
-          <span className="text-gradient-gold">começa agora.</span>
+          <span className="text-gradient-red">começa agora.</span>
         </h2>
 
         <p className="text-muted-foreground text-sm md:text-base max-w-md mx-auto mb-10 px-2">

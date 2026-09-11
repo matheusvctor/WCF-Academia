@@ -37,6 +37,11 @@ export interface Unidade {
   logo?: string;
   bio: string;
   faixa: string;
+  tipoBadge?: string;
+  cargo?: string;
+  ctaText?: string;
+  ctaMsg?: string;
+  destaques?: string[];
   certificados?: UnidadeCertificado[];
 }
 
@@ -95,4 +100,6 @@ export interface ImageGalleryItem {
 export interface BannerItem {
   src: string;
   alt: string;
+  tag?: string;
+  badge?: string;
 }

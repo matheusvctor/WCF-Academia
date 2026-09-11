@@ -1,9 +1,9 @@
-import ricardoImg from "@/assets/professores/personal-ricardo.jpg";
-import dayaneImg from "@/assets/professores/personal-dayane.jpg";
-import renallyImg from "@/assets/professores/personal-renally.jpg";
-import marcosImg from "@/assets/professores/personal-marcos.jpg";
-import radamesImg from "@/assets/professores/personal-radames.jpg";
-import renallyDestaqueImg from "@/assets/professores/personal-renally-destaque.png";
+import ricardoImg from "@/assets/professores/personal-ricardo.webp";
+import dayaneImg from "@/assets/professores/personal-dayane.webp";
+import renallyImg from "@/assets/professores/personal-renally.webp";
+import marcosImg from "@/assets/professores/personal-marcos.webp";
+import radamesImg from "@/assets/professores/personal-radames.webp";
+import renallyDestaqueImg from "@/assets/professores/personal-renally-destaque.webp";
 import { Professor } from "@/types";
 
 export const PROFESSORES: Professor[] = [

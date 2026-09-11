@@ -12,7 +12,7 @@ export const HorariosSection = () => {
           label="Horários & Grades"
           title={
             <>
-              Encaixe o Treino na <span className="text-gradient-gold">Sua Rotina.</span>
+              Encaixe o Treino na <span className="text-gradient-red">Sua Rotina.</span>
             </>
           }
           description="A WCF abre às 05h da manhã e fecha à meia-noite. Treine com tranquilidade no horário que melhor se adapta ao seu dia."
@@ -87,9 +87,9 @@ export const HorariosSection = () => {
           </div>
 
           {/* Bloco 4: Studio Pilates */}
-          <div className="glass rounded-2xl p-6 border border-amber-500/20 hover:border-amber-500/40 transition-colors flex flex-col justify-between shadow-lg">
+          <div className="glass rounded-2xl p-6 border border-border hover:border-primary/40 transition-colors flex flex-col justify-between shadow-lg">
             <div>
-              <div className="flex items-center gap-2 text-xs font-heading font-bold uppercase tracking-wider text-amber-400 mb-4">
+              <div className="flex items-center gap-2 text-xs font-heading font-bold uppercase tracking-wider text-primary mb-4">
                 <Sparkles className="w-4 h-4" /> WCF Studio Pilates
               </div>
               <div className="space-y-3 text-xs text-muted-foreground leading-relaxed">
@@ -103,7 +103,7 @@ export const HorariosSection = () => {
                   <div className="font-heading font-bold text-foreground uppercase tracking-wider mb-1">
                     Pilates Solo & Alongamento
                   </div>
-                  <p className="text-amber-400/90 font-medium">Terça e Quinta às 18h40</p>
+                  <p className="text-primary/90 font-medium">Terça e Quinta às 18h40</p>
                   <p className="text-[11px] text-muted-foreground mt-0.5">Instrutor Romero Mota</p>
                 </div>
               </div>
@@ -113,7 +113,7 @@ export const HorariosSection = () => {
                 href={getWhatsAppUrl("Olá! Gostaria de consultar os horários disponíveis para treino na WCF Academia!")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-outline !py-2 !text-xs !w-full flex items-center justify-center gap-1.5"
+                className="btn-outline !py-2 !text-xs !w-full flex items-center justify-center gap-1.5 hover:border-primary/50 hover:text-primary transition-colors"
               >
                 <MessageCircle className="w-3.5 h-3.5" /> Confirmar Vaga
               </a>

@@ -5,13 +5,17 @@ import ParallaxBanner from "@/components/common/ParallaxBanner";
 import ProfessoresSection from "@/components/sections/ProfessoresSection";
 import SobreSection from "@/components/sections/SobreSection";
 import CertificadosSection from "@/components/sections/CertificadosSection";
-import GaleriaSection from "@/components/sections/GaleriaSection";
 import UnidadesSection from "@/components/sections/UnidadesSection";
-import CTASection from "@/components/sections/CTASection";
-import bannerEquipe from "@/assets/professores/professor-radames-aniversario.jpg";
+import bannerEquipe from "@/assets/professores/professor-radames-aniversario.webp";
 import { Users } from "lucide-react";
+import { usePageTitle } from "@/hooks/usePageTitle";
 
 export const EquipePage = () => {
+  usePageTitle(
+    "Nossa Equipe & Professores",
+    "Conheça os 5 personal trainers da WCF Academia e o fundador Mestre Wilson Camara Filho. Suporte especializado das 05h às 00h."
+  );
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -28,9 +32,7 @@ export const EquipePage = () => {
         <ProfessoresSection />
         <SobreSection />
         <CertificadosSection />
-        <GaleriaSection />
         <UnidadesSection />
-        <CTASection />
       </main>
       <Footer />
       <WhatsAppFloat />

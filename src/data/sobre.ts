@@ -1,4 +1,4 @@
-import fundadorImg from "@/assets/fundador.jpg";
+import fundadorImg from "@/assets/fundador.webp";
 import { Award, GraduationCap, Dumbbell, Heart } from "lucide-react";
 import { Credencial, Pilar } from "@/types";
 

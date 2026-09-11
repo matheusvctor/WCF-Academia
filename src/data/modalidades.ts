@@ -1,11 +1,11 @@
-import jiuJitsuKidsAsset from "@/assets/jiujitsu/jiujitsu-kids.jpg";
-import musculacaoAsset from "@/assets/musculacao/post-treino-pernas.png";
-import pilatesAsset from "@/assets/banners/banner-pilates-qualidade.png";
-import spinningAsset from "@/assets/aulas/aula-spinning.jpg";
-import stepAsset from "@/assets/aulas/aula-step.jpg";
-import muayThaiAsset from "@/assets/aulas/aula-muaythai.jpg";
-import localizadaAsset from "@/assets/aulas/aula-localizada.jpg";
-import jiuJitsuAsset from "@/assets/jiujitsu/jiujitsu-tatame-horarios.jpg";
+import jiuJitsuKidsAsset from "@/assets/jiujitsu/jiujitsu-kids.webp";
+import musculacaoAsset from "@/assets/musculacao/post-treino-pernas.webp";
+import pilatesAsset from "@/assets/banners/banner-pilates-qualidade.webp";
+import spinningAsset from "@/assets/aulas/aula-spinning.webp";
+import stepAsset from "@/assets/aulas/aula-step.webp";
+import muayThaiAsset from "@/assets/aulas/aula-muaythai.webp";
+import localizadaAsset from "@/assets/aulas/aula-localizada.webp";
+import jiuJitsuAsset from "@/assets/jiujitsu/jiujitsu-tatame-horarios.webp";
 import { Modalidade } from "@/types";
 
 export const MODALIDADES: Modalidade[] = [

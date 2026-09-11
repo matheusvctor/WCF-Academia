@@ -8,8 +8,14 @@ import LocalizacaoSection from "@/components/sections/LocalizacaoSection";
 import CTASection from "@/components/sections/CTASection";
 import Footer from "@/components/layout/Footer";
 import WhatsAppFloat from "@/components/layout/WhatsAppFloat";
+import { usePageTitle } from "@/hooks/usePageTitle";
 
 export const Index = () => {
+  usePageTitle(
+    "Início",
+    "WCF Academia - Musculação das 05h às 00h, Jiu-Jitsu Kids e Adulto, e Studio Pilates no Jardim Paulistano, Campina Grande - PB. Agende sua aula grátis!"
+  );
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />

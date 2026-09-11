@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Sparkles, Shield, Dumbbell, Clock } from "lucide-react";
-import posterPilates from "@/assets/banners/banner-pilates-qualidade.png";
-import posterKids from "@/assets/jiujitsu/jiujitsu-kids.jpg";
-import posterMusc from "@/assets/musculacao/post-treino-pernas.png";
-import posterEquipe from "@/assets/professores/professor-radames-aniversario.jpg";
+import posterPilates from "@/assets/banners/banner-pilates-qualidade.webp";
+import posterKids from "@/assets/jiujitsu/jiujitsu-kids.webp";
+import posterMusc from "@/assets/musculacao/post-treino-pernas.webp";
+import posterEquipe from "@/assets/professores/professor-radames-aniversario.webp";
 
 const PORTALS = [
   {
     tag: "Studio Exclusivo",
-    tagColor: "text-amber-400 bg-amber-500/10 border-amber-500/20",
+    tagColor: "text-primary bg-primary/10 border-primary/20",
     icon: Sparkles,
     title: "WCF Studio Pilates",
     desc: "Reformer clássico, Cadillac, alinhamento postural e turmas de Pilates Solo & Alongamento.",
@@ -28,7 +28,7 @@ const PORTALS = [
   },
   {
     tag: "Aulas & Musculação",
-    tagColor: "text-blue-400 bg-blue-500/10 border-blue-500/20",
+    tagColor: "text-primary bg-primary/10 border-primary/20",
     icon: Dumbbell,
     title: "Modalidades & Treinos",
     desc: "Spinning, Step, Localizada, Muay Thai e musculação biomecânica de alto rendimento.",
@@ -38,7 +38,7 @@ const PORTALS = [
   },
   {
     tag: "05h às 00h",
-    tagColor: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
+    tagColor: "text-primary bg-primary/10 border-primary/20",
     icon: Clock,
     title: "5 Personais de Plantão",
     desc: "Escala contínua cobrindo todas as 19h diárias com acompanhamento presencial no salão.",
