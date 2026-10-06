@@ -9,6 +9,12 @@ export const SITE_INFO = {
     handle: "@wcf.academia",
     url: "https://instagram.com/wcf.academia",
   },
+  workingHours: {
+    weekdays: "05h00 – 00h00",
+    saturday: "08h00 – 12h00 · 14h00 – 17h00",
+    sunday: "08h00 – 14h00",
+    summary: "Seg a Sex: 05h–00h • Sáb: 08h–12h / 14h–17h • Dom: 08h–14h",
+  },
   address: {
     street: "Rua Isaac Catão, 530",
     neighborhood: "Jardim Paulistano",
@@ -29,14 +35,16 @@ export const SITE_INFO = {
 export const NAV_LINKS = [
   { label: "Início", href: "/" },
   { label: "Modalidades", href: "/modalidades" },
-  { label: "Studio Pilates", href: "/pilates" },
-  { label: "Jiu-Jitsu Kids", href: "/jiu-jitsu" },
+  { label: "Pilates", href: "/pilates" },
+  { label: "Jiu-Jitsu", href: "/jiu-jitsu" },
   { label: "Equipe", href: "/equipe" },
-  { label: "Horários", href: "/horarios" },
+  { label: "Planos", href: "/horarios" },
   { label: "Contato", href: "/contato" },
 ] as const;
 
+
 export function getWhatsAppUrl(message = "Olá! Quero agendar uma aula grátis na WCF Academia!"): string {
-  const encoded = encodeURIComponent(message);
-  return `https://api.whatsapp.com/send?phone=${SITE_INFO.phoneRaw}&text=${encoded}`;
+  const cleanPhone = SITE_INFO.phoneRaw.replace(/\D/g, "");
+  const encoded = encodeURIComponent(message.trim());
+  return `https://api.whatsapp.com/send?phone=${cleanPhone}&text=${encoded}`;
 }

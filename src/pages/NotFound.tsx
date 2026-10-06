@@ -27,7 +27,8 @@ const NotFound = () => {
       <main className="flex-1 flex items-center justify-center py-20 px-4">
         <div className="relative max-w-xl w-full text-center space-y-8">
           {/* Ambient Glow */}
-          <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-72 h-72 bg-primary/15 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-72 h-72 glow-ambient-red rounded-full pointer-events-none" />
+
 
           {/* 404 Badge */}
           <div className="relative inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/30 text-primary font-semibold text-sm tracking-wider uppercase">

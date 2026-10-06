@@ -5,9 +5,10 @@ import { getWhatsAppUrl } from "@/constants/site";
 
 export const UnidadesSection = () => {
   return (
-    <section id="unidades" className="py-16 md:py-24 border-t border-border/50 relative overflow-hidden bg-background">
-      {/* Ambient background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-primary/10 rounded-full blur-[140px] pointer-events-none" />
+    <section id="unidades" className="py-16 md:py-24 border-t border-border/50 relative overflow-hidden bg-background section-optimized">
+      {/* High-Performance Radial Ambient Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] glow-ambient-red rounded-full pointer-events-none" />
+
 
       <div className="container mx-auto px-4 max-w-6xl relative z-10">
         <SectionHeader

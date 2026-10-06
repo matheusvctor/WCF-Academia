@@ -1,52 +1,50 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 4%;
-    --foreground: 0 0% 96%;
+    --background: 220 16% 5%;
+    --foreground: 210 20% 98%;
 
-    --card: 0 0% 7%;
-    --card-foreground: 0 0% 96%;
+    --card: 220 14% 8%;
+    --card-foreground: 210 20% 98%;
 
-    --popover: 0 0% 7%;
-    --popover-foreground: 0 0% 96%;
+    --popover: 220 14% 8%;
+    --popover-foreground: 210 20% 98%;
 
-    --primary: 0 80% 52%;
+    --primary: 0 84% 56%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 43 85% 55%;
-    --secondary-foreground: 0 0% 5%;
+    --secondary: 43 90% 55%;
+    --secondary-foreground: 220 16% 5%;
 
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 55%;
+    --muted: 220 12% 14%;
+    --muted-foreground: 215 15% 65%;
 
-    --accent: 43 85% 55%;
-    --accent-foreground: 0 0% 5%;
+    --accent: 43 90% 55%;
+    --accent-foreground: 220 16% 5%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 14%;
-    --input: 0 0% 14%;
-    --ring: 0 80% 52%;
+    --border: 220 12% 16%;
+    --input: 220 12% 16%;
+    --ring: 0 84% 56%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
-    --sidebar-background: 0 0% 7%;
-    --sidebar-foreground: 0 0% 96%;
-    --sidebar-primary: 0 80% 52%;
+    --sidebar-background: 220 14% 8%;
+    --sidebar-foreground: 210 20% 98%;
+    --sidebar-primary: 0 84% 56%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 12%;
-    --sidebar-accent-foreground: 0 0% 96%;
-    --sidebar-border: 0 0% 14%;
-    --sidebar-ring: 0 80% 52%;
+    --sidebar-accent: 220 12% 14%;
+    --sidebar-accent-foreground: 210 20% 98%;
+    --sidebar-border: 220 12% 16%;
+    --sidebar-ring: 0 84% 56%;
 
-    --gold: 43 85% 55%;
-    --gold-light: 43 85% 70%;
+    --gold: 43 90% 55%;
+    --gold-light: 43 95% 72%;
   }
 }
 
@@ -56,24 +54,32 @@
   }
 
   body {
-    @apply bg-background text-foreground font-body antialiased overflow-x-hidden;
+    @apply bg-background text-foreground font-body antialiased overflow-x-hidden selection:bg-primary/30 selection:text-white;
   }
 
-
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading;
+    @apply font-heading tracking-tight;
   }
 }
 
 @layer utilities {
   .text-gradient-gold {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(43, 85%, 55%), hsl(43, 85%, 75%));
+    background-image: linear-gradient(135deg, hsl(43, 90%, 55%), hsl(43, 95%, 75%));
   }
 
   .text-gradient-red {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(0, 80%, 48%), hsl(15, 90%, 55%));
+    background-image: linear-gradient(135deg, hsl(0, 84%, 56%), hsl(15, 92%, 60%));
+  }
+
+  .text-gradient-silver {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #ffffff, #94a3b8);
+  }
+
+  .bg-radial-hero {
+    background: radial-gradient(circle at 50% 0%, hsl(0, 84%, 56%, 0.15) 0%, transparent 65%);
   }
 
   .bg-noise {
@@ -81,28 +87,51 @@
   }
 
   .glass {
-    @apply bg-card/60 backdrop-blur-xl border border-border/50;
+    @apply bg-card/85 border border-white/10 md:backdrop-blur-sm;
+  }
+
+  .glass-card {
+    @apply bg-card/90 md:bg-card/80 border border-white/10 shadow-xl transition-all duration-300 md:backdrop-blur-sm;
+  }
+
+  .glow-ambient-red {
+    background: radial-gradient(circle at center, hsla(0, 84%, 56%, 0.12) 0%, hsla(0, 84%, 56%, 0.03) 45%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .glow-ambient-gold {
+    background: radial-gradient(circle at center, hsla(43, 90%, 55%, 0.10) 0%, hsla(43, 90%, 55%, 0.02) 45%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .section-optimized {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 650px;
   }
 
   .glow-red {
-    box-shadow: 0 0 40px hsl(0, 80%, 52%, 0.25);
+    box-shadow: 0 0 35px hsl(0, 84%, 56%, 0.3);
   }
 
+
   .glow-gold {
-    box-shadow: 0 0 40px hsl(43, 85%, 55%, 0.2);
+    box-shadow: 0 0 35px hsl(43, 90%, 55%, 0.25);
+  }
+
+  .glow-green {
+    box-shadow: 0 0 30px hsl(142, 70%, 45%, 0.35);
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/85 text-primary-foreground font-heading text-xs sm:text-sm uppercase tracking-widest px-6 sm:px-8 py-3.5 sm:py-4 rounded-full transition-all duration-300 text-center;
+    @apply inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-red-600 hover:from-primary/90 hover:to-red-500 text-white font-heading text-xs sm:text-sm font-bold uppercase tracking-wider px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl transition-all duration-300 shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5 active:translate-y-0 text-center;
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 border border-border hover:border-foreground/30 text-foreground font-heading text-xs sm:text-sm uppercase tracking-widest px-6 sm:px-8 py-3.5 sm:py-4 rounded-full transition-all duration-300 text-center;
+    @apply inline-flex items-center justify-center gap-2 border border-white/15 hover:border-primary/60 bg-card/40 hover:bg-card/80 text-foreground font-heading text-xs sm:text-sm font-semibold uppercase tracking-wider px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl transition-all duration-300 text-center backdrop-blur-md hover:-translate-y-0.5 active:translate-y-0;
   }
 
-
   .section-label {
-    @apply inline-flex items-center gap-2 text-xs font-heading uppercase tracking-[0.2em] text-primary mb-4;
+    @apply inline-flex items-center gap-2 text-xs font-heading font-bold uppercase tracking-[0.2em] text-primary mb-3 px-3 py-1 rounded-full bg-primary/10 border border-primary/25 backdrop-blur-md;
   }
 }
 
@@ -111,12 +140,15 @@ html {
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: hsl(0, 0%, 4%);
+  background: hsl(220, 16%, 5%);
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(0, 0%, 20%);
-  border-radius: 3px;
+  background: hsl(220, 12%, 22%);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(0, 84%, 56%);
 }

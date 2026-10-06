@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 import { BANNERS } from "@/data/banners";
 import { SITE_INFO, getWhatsAppUrl } from "@/constants/site";
-import { useParallax } from "@/hooks/useParallax";
+
 
 const QUICK_STATS = [
   {
@@ -74,35 +74,32 @@ export const HeroSection = () => {
     });
   }, [api]);
 
-  const parallaxOffset = useParallax({ speed: 0.15 });
-
   const handlePillClick = (idx: number) => {
     api?.scrollTo(idx);
   };
 
   return (
     <section className="relative flex flex-col justify-center bg-background overflow-hidden min-h-[calc(100vh-76px)] pt-24 pb-14 lg:py-24">
-      {/* Dynamic Background Glows with Parallax */}
-      <div
-        className="absolute top-1/4 left-1/4 -translate-x-1/2 w-[600px] h-[500px] bg-primary/15 rounded-full blur-[150px] pointer-events-none will-change-transform"
-        style={{ transform: `translate3d(-50%, ${parallaxOffset * 0.3}px, 0)` }}
-      />
-      <div
-        className="absolute bottom-10 right-10 w-[500px] h-[400px] bg-primary/10 rounded-full blur-[140px] pointer-events-none will-change-transform"
-        style={{ transform: `translate3d(0, ${-parallaxOffset * 0.2}px, 0)` }}
-      />
+      {/* High-Performance Hardware-Accelerated Ambient Glows */}
+      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 w-[600px] h-[500px] glow-ambient-red rounded-full pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-[500px] h-[400px] glow-ambient-red rounded-full pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
           {/* Coluna Esquerda: Texto, CTAs, Pílulas e Métricas */}
           <div className="lg:col-span-7 flex flex-col justify-center text-left space-y-6">
             
-            {/* Badge Institucional */}
+            {/* Badge Institucional & Status */}
             <div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-card/80 border border-primary/25 backdrop-blur-md text-xs font-heading uppercase tracking-[0.2em] text-primary shadow-sm">
-                <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-                Desde {SITE_INFO.since} • Jardim Paulistano, Campina Grande
+              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-card/80 border border-white/10 backdrop-blur-md text-xs font-heading font-semibold uppercase tracking-wider text-foreground shadow-sm">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="text-emerald-400">Aberto Hoje</span>
+                <span className="text-white/20">•</span>
+                <span className="text-muted-foreground">05h às 00h</span>
+                <span className="text-white/20">•</span>
+                <span className="text-primary font-bold">Desde {SITE_INFO.since}</span>
               </div>
             </div>
 
@@ -113,14 +110,14 @@ export const HeroSection = () => {
 
             {/* Subheadline Informativa */}
             <p className="text-muted-foreground text-sm sm:text-base lg:text-lg leading-relaxed max-w-2xl">
-              Musculação de alta performance das <strong>05h às 00h</strong> com 5 personais de plantão,
+              Musculação de alta performance das <strong>05h às 00h</strong> com 5 personais de plantão no salão,
               Studio Pilates com aparelhos clássicos Reformer e tatame oficial de Jiu-Jitsu com Mestre Wilson Camara Filho.
             </p>
 
             {/* Pílulas Interativas de Navegação dos Banners */}
             <div className="pt-1">
-              <p className="text-[11px] uppercase tracking-wider text-muted-foreground font-semibold mb-2.5">
-                Explore os pilares da WCF:
+              <p className="text-[11px] uppercase tracking-wider text-muted-foreground/80 font-bold mb-2.5">
+                Explore as modalidades da WCF:
               </p>
               <div className="flex flex-wrap gap-2">
                 {BANNERS.map((b, idx) => {
@@ -133,7 +130,7 @@ export const HeroSection = () => {
                       className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-heading font-semibold transition-all duration-300 ${
                         isActive
                           ? "bg-primary text-white shadow-lg shadow-primary/30 border border-primary scale-105"
-                          : "bg-card/70 border border-border/80 text-muted-foreground hover:text-foreground hover:border-primary/40"
+                          : "bg-card/70 border border-white/10 text-muted-foreground hover:text-foreground hover:border-primary/40 hover:bg-card"
                       }`}
                     >
                       <IconComponent className="w-3.5 h-3.5" />
@@ -150,7 +147,7 @@ export const HeroSection = () => {
                 href={getWhatsAppUrl("Olá! Quero agendar uma aula experimental grátis na WCF Academia!")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary glow-red !py-4 !px-8 text-xs sm:text-sm font-heading font-bold text-center justify-center flex items-center gap-2 shadow-xl"
+                className="btn-primary glow-red !py-4 !px-8 text-xs sm:text-sm font-heading font-bold text-center justify-center flex items-center gap-2 shadow-xl shadow-primary/20"
               >
                 <MessageCircle className="w-4 h-4 shrink-0" />
                 Agendar Aula Grátis no WhatsApp
@@ -165,21 +162,21 @@ export const HeroSection = () => {
             </div>
 
             {/* Faixa de Métricas Rápidas */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-4 border-t border-border/50">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-4 border-t border-white/10">
               {QUICK_STATS.map((s, idx) => {
                 const Icon = s.icon;
                 return (
                   <div
                     key={idx}
-                    className="p-3 rounded-xl bg-card/60 border border-border/70 hover:border-primary/30 transition-colors flex flex-col justify-between"
+                    className="p-3.5 rounded-2xl glass border border-white/10 hover:border-primary/40 transition-all flex flex-col justify-between group shadow-sm hover:shadow-md"
                   >
                     <div className="flex items-center gap-1.5 text-primary mb-1">
-                      <Icon className="w-3.5 h-3.5" />
+                      <Icon className="w-4 h-4 group-hover:scale-110 transition-transform" />
                       <span className="font-heading font-bold text-xs sm:text-sm text-foreground">
                         {s.value}
                       </span>
                     </div>
-                    <div className="text-[10px] text-muted-foreground leading-tight">
+                    <div className="text-[10px] text-muted-foreground leading-tight font-medium">
                       {s.label}
                     </div>
                   </div>
@@ -191,9 +188,10 @@ export const HeroSection = () => {
           {/* Coluna Direita: O Carrossel de Pôsteres Vertical Sem Vazio */}
           <div className="lg:col-span-5 flex justify-center items-center relative">
             {/* Ambient Glow Exclusivo do Card */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 via-primary/15 to-transparent rounded-3xl blur-2xl opacity-60 scale-95 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary/25 via-primary/10 to-transparent rounded-3xl opacity-70 scale-95 pointer-events-none" />
 
-            <div className="relative w-full max-w-[420px] sm:max-w-[460px] lg:max-w-full aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 shadow-[0_25px_60px_rgba(0,0,0,0.8)] bg-card/40 backdrop-blur-xl group">
+            <div className="relative w-full max-w-[420px] sm:max-w-[460px] lg:max-w-full aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 shadow-[0_25px_60px_rgba(0,0,0,0.8)] bg-card/80 md:backdrop-blur-md group">
+
               <Carousel
                 setApi={setApi}
                 opts={{ loop: true, align: "start" }}
@@ -203,17 +201,7 @@ export const HeroSection = () => {
                 <CarouselContent className="ml-0 h-full">
                   {BANNERS.map((b, i) => (
                     <CarouselItem key={i} className="pl-0 basis-full h-full relative">
-                      <div className="relative w-full h-full flex items-center justify-center overflow-hidden bg-black/60">
-                        {/* Imagem de Fundo Suave para Harmonia de Aspect Ratio */}
-                        <img
-                          src={b.src}
-                          alt=""
-                          aria-hidden="true"
-                          className="absolute inset-0 w-full h-full object-cover filter blur-xl scale-110 opacity-40 select-none pointer-events-none"
-                          draggable={false}
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40" />
-
+                      <div className="relative w-full h-full flex items-center justify-center overflow-hidden bg-gradient-to-b from-card/90 via-black to-background">
                         {/* Pôster Principal 100% Nítido e Enquadrado */}
                         <img
                           src={b.src}
@@ -224,6 +212,7 @@ export const HeroSection = () => {
                           decoding={i === 0 ? "sync" : "async"}
                           {...(i === 0 ? { fetchPriority: "high" as const } : {})}
                         />
+
 
                         {/* Selo Flutuante do Banner no Topo */}
                         {b.badge && (

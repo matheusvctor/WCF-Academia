@@ -11,7 +11,7 @@ import { PROFESSORES, PERSONAL_DESTAQUE } from "@/data/equipe";
 import { SectionHeader } from "@/components/common/SectionHeader";
 import { getWhatsAppUrl } from "@/constants/site";
 import { Clock, ShieldCheck, Dumbbell, MessageCircle, ChevronRight, UserCheck } from "lucide-react";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
 export const ProfessoresSection = () => {
   const [selectedImg, setSelectedImg] = useState<string | null>(null);
@@ -20,7 +20,8 @@ export const ProfessoresSection = () => {
   );
 
   return (
-    <section id="professores" className="py-16 md:py-24 border-t border-border/50 relative overflow-hidden bg-background">
+    <section id="professores" className="py-16 md:py-24 border-t border-border/50 relative overflow-hidden bg-background section-optimized">
+
       <div className="container mx-auto px-4 relative z-10">
         <SectionHeader
           label="Equipe de Musculação & Personais"
@@ -162,6 +163,8 @@ export const ProfessoresSection = () => {
         {/* Modal de visualização */}
         <Dialog open={!!selectedImg} onOpenChange={(open) => !open && setSelectedImg(null)}>
           <DialogContent className="max-w-xl p-2 bg-card/95 backdrop-blur-xl border border-border">
+            <DialogTitle className="sr-only">Visualização de Personal Trainer WCF</DialogTitle>
+            <DialogDescription className="sr-only">Foto ampliada da equipe de personal trainers da WCF Academia</DialogDescription>
             {selectedImg && (
               <img
                 src={selectedImg}

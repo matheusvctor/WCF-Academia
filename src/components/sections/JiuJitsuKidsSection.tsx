@@ -3,7 +3,7 @@ import { MessageCircle, ShieldCheck, Brain, Sparkles, HeartHandshake, CheckCircl
 import { SectionHeader } from '@/components/common/SectionHeader';
 import { JIU_JITSU_KIDS_HERO, JIU_JITSU_MODALIDADES, JIU_JITSU_TATAME_INFO } from '@/data/jiujitsu';
 import { getWhatsAppUrl } from '@/constants/site';
-import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 
 const ICON_MAP = {
   Brain,
@@ -16,10 +16,11 @@ export const JiuJitsuKidsSection = () => {
   const [selectedImg, setSelectedImg] = useState<string | null>(null);
 
   return (
-    <section id="jiu-jitsu-kids" className="py-16 md:py-24 border-t border-border/50 relative overflow-hidden bg-background">
-      {/* Decorative gradient glow */}
-      <div className="absolute -top-40 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-40 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+    <section id="jiu-jitsu-kids" className="py-16 md:py-24 border-t border-border/50 relative overflow-hidden bg-background section-optimized">
+      {/* High-Performance Radial Ambient Glow */}
+      <div className="absolute -top-40 right-0 w-96 h-96 glow-ambient-red rounded-full pointer-events-none" />
+      <div className="absolute -bottom-40 left-0 w-96 h-96 glow-ambient-red rounded-full pointer-events-none opacity-50" />
+
 
       <div className="container mx-auto px-4 relative z-10">
         <SectionHeader
@@ -236,6 +237,8 @@ export const JiuJitsuKidsSection = () => {
         {/* Modal de visualização de imagem em tamanho grande */}
         <Dialog open={!!selectedImg} onOpenChange={(open) => !open && setSelectedImg(null)}>
           <DialogContent className="max-w-2xl p-2 bg-card/95 backdrop-blur-xl border border-border">
+            <DialogTitle className="sr-only">Visualização do Tatame e Jiu-Jitsu WCF</DialogTitle>
+            <DialogDescription className="sr-only">Foto ampliada das turmas de Jiu-Jitsu Kids, Feminino e Adulto</DialogDescription>
             {selectedImg && (
               <img
                 src={selectedImg}

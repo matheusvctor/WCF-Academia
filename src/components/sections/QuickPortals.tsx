@@ -8,7 +8,7 @@ import posterEquipe from "@/assets/professores/professor-radames-aniversario.web
 const PORTALS = [
   {
     tag: "Studio Exclusivo",
-    tagColor: "text-primary bg-primary/10 border-primary/20",
+    tagColor: "text-amber-400 bg-amber-500/10 border-amber-500/20",
     icon: Sparkles,
     title: "WCF Studio Pilates",
     desc: "Reformer clássico, Cadillac, alinhamento postural e turmas de Pilates Solo & Alongamento.",
@@ -18,7 +18,7 @@ const PORTALS = [
   },
   {
     tag: "1ª Mensalidade FREE",
-    tagColor: "text-primary bg-primary/10 border-primary/20",
+    tagColor: "text-red-400 bg-red-500/10 border-red-500/20",
     icon: Shield,
     title: "Jiu-Jitsu Kids & Lutas",
     desc: "Tatame seguro, foco e autodefesa para crianças até 10 anos, turmas feminina e adultos.",
@@ -38,7 +38,7 @@ const PORTALS = [
   },
   {
     tag: "05h às 00h",
-    tagColor: "text-primary bg-primary/10 border-primary/20",
+    tagColor: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
     icon: Clock,
     title: "5 Personais de Plantão",
     desc: "Escala contínua cobrindo todas as 19h diárias com acompanhamento presencial no salão.",
@@ -50,10 +50,14 @@ const PORTALS = [
 
 export const QuickPortals = () => {
   return (
-    <section className="py-16 md:py-24 bg-background relative overflow-hidden">
-      <div className="container mx-auto px-4">
+    <section className="py-16 md:py-24 bg-background relative overflow-hidden section-optimized">
+      {/* High-Performance Radial Ambient Glow */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[350px] glow-ambient-red rounded-full pointer-events-none" />
+
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-card border border-primary/20 text-xs font-heading uppercase tracking-[0.2em] text-primary mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-card border border-white/10 text-xs font-heading uppercase tracking-[0.2em] text-primary mb-3">
             Estrutura Completa
           </div>
           <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-4">
@@ -70,7 +74,7 @@ export const QuickPortals = () => {
             return (
               <div
                 key={idx}
-                className="group relative rounded-3xl overflow-hidden glass border border-border/80 hover:border-primary/50 transition-all duration-300 flex flex-col justify-between shadow-xl hover:-translate-y-1"
+                className="group relative rounded-3xl overflow-hidden glass-card border border-white/10 hover:border-primary/50 transition-all duration-300 flex flex-col justify-between shadow-xl hover:-translate-y-1.5"
               >
                 <div className="p-6 sm:p-8 relative z-10 flex flex-col justify-between h-full">
                   <div>
@@ -93,22 +97,22 @@ export const QuickPortals = () => {
                   </div>
 
                   {/* Poster Thumbnail */}
-                  <div className="relative aspect-[16/9] rounded-2xl overflow-hidden mb-6 border border-border/60 bg-card">
+                  <div className="relative aspect-[16/9] rounded-2xl overflow-hidden mb-6 border border-white/10 bg-card">
                     <img
                       src={p.image}
                       alt={p.title}
                       loading="lazy"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent" />
                   </div>
 
                   <Link
                     to={p.href}
-                    className="inline-flex items-center justify-between w-full p-3.5 rounded-xl bg-card/80 border border-border hover:border-primary text-xs font-heading font-bold uppercase tracking-wider text-foreground hover:text-primary transition-all"
+                    className="inline-flex items-center justify-between w-full p-4 rounded-xl bg-card/90 border border-white/10 hover:border-primary text-xs font-heading font-bold uppercase tracking-wider text-foreground hover:text-white hover:bg-primary transition-all group/btn shadow-md"
                   >
                     <span>{p.buttonText}</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                   </Link>
                 </div>
               </div>
@@ -121,3 +125,4 @@ export const QuickPortals = () => {
 };
 
 export default QuickPortals;
+

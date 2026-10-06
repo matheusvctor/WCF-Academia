@@ -3,6 +3,7 @@ import Footer from "@/components/layout/Footer";
 import WhatsAppFloat from "@/components/layout/WhatsAppFloat";
 import ParallaxBanner from "@/components/common/ParallaxBanner";
 import PilatesSection from "@/components/sections/PilatesSection";
+import LeadCaptureSection from "@/components/sections/LeadCaptureSection";
 import bannerPilates from "@/assets/banners/banner-pilates-qualidade.webp";
 import { Sparkles } from "lucide-react";
 import { usePageTitle } from "@/hooks/usePageTitle";
@@ -27,11 +28,13 @@ export const PilatesPage = () => {
       />
       <main>
         <PilatesSection />
+        <LeadCaptureSection />
       </main>
       <Footer />
       <WhatsAppFloat />
     </div>
   );
 };
+
 
 export default PilatesPage;

@@ -1,5 +1,4 @@
-import React from "react";
-import { useParallax } from "@/hooks/useParallax";
+import React, { useRef, useEffect } from "react";
 
 interface ParallaxBannerProps {
   badge?: string;
@@ -22,7 +21,30 @@ export const ParallaxBanner: React.FC<ParallaxBannerProps> = ({
   accentColor = "primary",
   children,
 }) => {
-  const parallaxOffset = useParallax({ speed: 0.25 });
+  const bgRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!imageSrc) return;
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (mediaQuery.matches) return;
+
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          if (bgRef.current) {
+            const scrollY = window.scrollY || 0;
+            bgRef.current.style.transform = `translate3d(0, ${scrollY * 0.12}px, 0)`;
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [imageSrc]);
 
   const accentClasses = {
     primary: "border-primary/20 text-primary bg-primary/10",
@@ -32,18 +54,16 @@ export const ParallaxBanner: React.FC<ParallaxBannerProps> = ({
 
   return (
     <div className="relative w-full pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-background border-b border-border/50">
-      {/* Background Image with subtle Parallax */}
+      {/* Background Image with high-performance compositor parallax (0 React re-renders) */}
       {imageSrc && (
         <div
+          ref={bgRef}
           className="absolute inset-0 w-full h-[130%] -top-[15%] pointer-events-none will-change-transform"
-          style={{
-            transform: `translate3d(0, ${parallaxOffset * 0.4}px, 0)`,
-          }}
         >
           <img
             src={imageSrc}
             alt={imageAlt}
-            className="w-full h-full object-cover object-center opacity-15 md:opacity-20 filter blur-[1px]"
+            className="w-full h-full object-cover object-center opacity-15 md:opacity-20"
             loading="eager"
             decoding="async"
           />
@@ -51,8 +71,8 @@ export const ParallaxBanner: React.FC<ParallaxBannerProps> = ({
         </div>
       )}
 
-      {/* Dynamic Ambient Glows */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
+      {/* Hardware-accelerated radial ambient glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] glow-ambient-red rounded-full pointer-events-none" />
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10 text-center max-w-4xl">

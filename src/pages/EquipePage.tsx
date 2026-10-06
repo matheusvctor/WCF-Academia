@@ -4,6 +4,7 @@ import WhatsAppFloat from "@/components/layout/WhatsAppFloat";
 import ParallaxBanner from "@/components/common/ParallaxBanner";
 import ProfessoresSection from "@/components/sections/ProfessoresSection";
 import SobreSection from "@/components/sections/SobreSection";
+import GaleriaSection from "@/components/sections/GaleriaSection";
 import CertificadosSection from "@/components/sections/CertificadosSection";
 import UnidadesSection from "@/components/sections/UnidadesSection";
 import bannerEquipe from "@/assets/professores/professor-radames-aniversario.webp";
@@ -31,6 +32,7 @@ export const EquipePage = () => {
       <main>
         <ProfessoresSection />
         <SobreSection />
+        <GaleriaSection />
         <CertificadosSection />
         <UnidadesSection />
       </main>
@@ -39,5 +41,6 @@ export const EquipePage = () => {
     </div>
   );
 };
+
 
 export default EquipePage;

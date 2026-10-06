@@ -2,7 +2,7 @@ import { useState } from "react";
 import { MUSCULACAO_HIGHLIGHTS } from "@/data/musculacao";
 import { SectionHeader } from "@/components/common/SectionHeader";
 import { Dumbbell, HeartPulse, CheckCircle2, ShieldCheck, Sparkles, Activity, Layers } from "lucide-react";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
 export const MusculacaoSection = () => {
   const [selectedImg, setSelectedImg] = useState<string | null>(null);
@@ -144,6 +144,8 @@ export const MusculacaoSection = () => {
         {/* Dialog Modal */}
         <Dialog open={!!selectedImg} onOpenChange={(open) => !open && setSelectedImg(null)}>
           <DialogContent className="max-w-2xl p-2 bg-card/95 backdrop-blur-xl border border-border">
+            <DialogTitle className="sr-only">Visualização de Musculação e Biomecânica WCF</DialogTitle>
+            <DialogDescription className="sr-only">Foto ampliada das instalações e biomecânica de treino da WCF</DialogDescription>
             {selectedImg && (
               <img
                 src={selectedImg}

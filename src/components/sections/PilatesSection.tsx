@@ -10,7 +10,7 @@ import {
 import { FOTOS_PILATES, PILATES_STUDIO_INFO } from "@/data/pilates";
 import { getWhatsAppUrl } from "@/constants/site";
 import { MessageCircle, Sparkles, Check, Activity, Heart, Shield } from "lucide-react";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
 const BENEFICIO_ICONS = [
   Sparkles,
@@ -26,9 +26,10 @@ export const PilatesSection = () => {
   );
 
   return (
-    <section id="pilates" className="py-12 md:py-16 relative overflow-hidden bg-background">
-      {/* Subtle warm glow background */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+    <section id="pilates" className="py-12 md:py-16 relative overflow-hidden bg-background section-optimized">
+      {/* High-Performance Radial Ambient Glow */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[300px] glow-ambient-red rounded-full pointer-events-none opacity-60" />
+
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Feature Banner Grid: Pôster Reformer + Pôster Solo */}
@@ -182,6 +183,8 @@ export const PilatesSection = () => {
         {/* Dialog Modal de imagem */}
         <Dialog open={!!selectedImg} onOpenChange={(open) => !open && setSelectedImg(null)}>
           <DialogContent className="max-w-2xl p-2 bg-card/95 backdrop-blur-xl border border-border">
+            <DialogTitle className="sr-only">Visualização do Studio Pilates WCF</DialogTitle>
+            <DialogDescription className="sr-only">Foto ampliada das instalações de Pilates Reformer e Solo</DialogDescription>
             {selectedImg && (
               <img
                 src={selectedImg}

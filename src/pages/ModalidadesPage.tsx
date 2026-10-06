@@ -4,6 +4,7 @@ import WhatsAppFloat from "@/components/layout/WhatsAppFloat";
 import ParallaxBanner from "@/components/common/ParallaxBanner";
 import ModalidadesSection from "@/components/sections/ModalidadesSection";
 import MusculacaoSection from "@/components/sections/MusculacaoSection";
+import CTASection from "@/components/sections/CTASection";
 import bannerMusc from "@/assets/musculacao/post-treino-pernas.webp";
 import { Dumbbell } from "lucide-react";
 import { usePageTitle } from "@/hooks/usePageTitle";
@@ -29,11 +30,13 @@ export const ModalidadesPage = () => {
       <main>
         <ModalidadesSection />
         <MusculacaoSection />
+        <CTASection />
       </main>
       <Footer />
       <WhatsAppFloat />
     </div>
   );
 };
+
 
 export default ModalidadesPage;

@@ -26,7 +26,8 @@ export const ModalidadesSection = () => {
   });
 
   return (
-    <section id="modalidades" className="py-16 md:py-24 border-t border-border/50 relative overflow-hidden bg-background">
+    <section id="modalidades" className="py-16 md:py-24 border-t border-border/50 relative overflow-hidden bg-background section-optimized">
+
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <SectionHeader
@@ -61,13 +62,14 @@ export const ModalidadesSection = () => {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((m) => {
-            // Se for Jiu-Jitsu Kids ou Pilates, pode redirecionar para a seção dedicada
+            // Se for Jiu-Jitsu ou Pilates, redireciona para a página dedicada
             const internalRoute =
-              m.name.includes("Kids") && m.name.includes("Jiu-Jitsu")
+              m.name.includes("Jiu-Jitsu")
                 ? "/jiu-jitsu"
                 : m.name.includes("Pilates")
                 ? "/pilates"
                 : null;
+
 
             const externalUrl = internalRoute
               ? null
