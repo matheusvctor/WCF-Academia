@@ -26,7 +26,7 @@ export const ParallaxBanner: React.FC<ParallaxBannerProps> = ({
   useEffect(() => {
     if (!imageSrc) return;
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (mediaQuery.matches) return;
+    if (mediaQuery.matches || window.innerWidth < 768) return;
 
     let ticking = false;
     const onScroll = () => {
@@ -47,14 +47,14 @@ export const ParallaxBanner: React.FC<ParallaxBannerProps> = ({
   }, [imageSrc]);
 
   const accentClasses = {
-    primary: "border-primary/20 text-primary bg-primary/10",
-    gold: "border-amber-500/20 text-amber-400 bg-amber-500/10",
+    primary: "border-primary/20 text-red-400 bg-primary/10",
+    gold: "border-gold/25 text-gold bg-gold/10",
     cyan: "border-cyan-500/20 text-cyan-400 bg-cyan-500/10",
   }[accentColor];
 
   return (
-    <div className="relative w-full pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-background border-b border-border/50">
-      {/* Background Image with high-performance compositor parallax (0 React re-renders) */}
+    <div className="relative w-full pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-background border-b border-white/[0.08]">
+      {/* Background Image com parallax leve e compositor via GPU */}
       {imageSrc && (
         <div
           ref={bgRef}
@@ -63,34 +63,37 @@ export const ParallaxBanner: React.FC<ParallaxBannerProps> = ({
           <img
             src={imageSrc}
             alt={imageAlt}
-            className="w-full h-full object-cover object-center opacity-15 md:opacity-20"
+            className="w-full h-full object-cover object-center opacity-15 md:opacity-25"
             loading="eager"
             decoding="async"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/90 to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/90 to-background" />
         </div>
       )}
 
-      {/* Hardware-accelerated radial ambient glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] glow-ambient-red rounded-full pointer-events-none" />
+      {/* Grid sutil e Glow ambiente */}
+      <div className="absolute inset-0 bg-grid opacity-60 pointer-events-none" aria-hidden="true" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[320px] glow-ambient-red rounded-full pointer-events-none" aria-hidden="true" />
 
-      {/* Content */}
-      <div className="container mx-auto px-4 relative z-10 text-center max-w-4xl">
+      {/* Conteúdo */}
+      <div className="container max-w-4xl px-4 sm:px-6 lg:px-8 relative z-10 text-center">
         {badge && (
-          <div
-            className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-heading uppercase tracking-[0.2em] mb-4 border backdrop-blur-md ${accentClasses}`}
-          >
-            {badgeIcon}
-            <span>{badge}</span>
+          <div className="inline-flex justify-center mb-4">
+            <span
+              className={`chip px-3.5 py-1.5 rounded-full text-xs font-heading font-semibold uppercase tracking-wider backdrop-blur-md ${accentClasses}`}
+            >
+              {badgeIcon}
+              <span>{badge}</span>
+            </span>
           </div>
         )}
 
-        <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-4 leading-tight">
+        <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.08] text-balance">
           {title}
         </h1>
 
         {description && (
-          <p className="text-muted-foreground text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-4 text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed text-pretty">
             {description}
           </p>
         )}

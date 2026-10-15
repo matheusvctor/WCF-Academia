@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import { cn } from "@/lib/utils";
 
 interface SectionHeaderProps {
@@ -9,6 +9,10 @@ interface SectionHeaderProps {
   className?: string;
 }
 
+/**
+ * Cabeçalho padrão de seção: eyebrow → título → descrição.
+ * Escala tipográfica consistente em todas as páginas.
+ */
 export const SectionHeader: React.FC<SectionHeaderProps> = ({
   label,
   title,
@@ -19,17 +23,26 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
   const isCenter = align === "center";
 
   return (
-    <div className={cn(isCenter ? "text-center" : "text-left", "mb-12", className)}>
-      <div className={cn("section-label", isCenter && "justify-center")}>
-        <span className="w-8 h-px bg-primary" />
+    <div
+      className={cn(
+        "mb-12 md:mb-16 flex flex-col",
+        isCenter ? "items-center text-center" : "items-start text-left",
+        className
+      )}
+    >
+      <span className="section-label">
+        <span className="w-1.5 h-1.5 rounded-full bg-primary" aria-hidden="true" />
         {label}
-        {isCenter && <span className="w-8 h-px bg-primary" />}
-      </div>
-      <h2 className="font-heading text-3xl md:text-5xl font-bold tracking-tight mb-4">
+      </span>
+      <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.1] text-foreground text-balance max-w-3xl">
         {title}
       </h2>
       {description && (
-        <p className={cn("text-muted-foreground text-sm md:text-base leading-relaxed", isCenter ? "max-w-xl mx-auto" : "max-w-2xl")}>
+        <p
+          className={cn(
+            "mt-4 text-muted-foreground text-base md:text-lg leading-relaxed text-pretty max-w-2xl"
+          )}
+        >
           {description}
         </p>
       )}

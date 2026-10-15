@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowUpRight, Sparkles } from "lucide-react";
+import { ArrowUpRight, ArrowRight, MessageCircle } from "lucide-react";
 import { MODALIDADES } from "@/data/modalidades";
 import { getWhatsAppUrl } from "@/constants/site";
 import { SectionHeader } from "@/components/common/SectionHeader";
+import type { Modalidade } from "@/types";
 
 const CATEGORIAS = [
   "Todas",
@@ -11,65 +12,87 @@ const CATEGORIAS = [
   "Lutas & Kids",
   "Bem-estar & Pilates",
   "Aulas Coletivas",
-];
+] as const;
+
+type Categoria = (typeof CATEGORIAS)[number];
+
+const matchCategoria = (m: Modalidade, cat: Categoria): boolean => {
+  if (cat === "Todas") return true;
+  if (cat === "Força & Saúde") return m.tag.includes("Força") || m.name.includes("Musculação");
+  if (cat === "Lutas & Kids") return m.name.includes("Jiu-Jitsu") || m.name.includes("Muay") || m.name.includes("Kids");
+  if (cat === "Bem-estar & Pilates") return m.name.includes("Pilates");
+  if (cat === "Aulas Coletivas") return m.name.includes("Spinning") || m.name.includes("Step") || m.name.includes("Localizada");
+  return true;
+};
 
 export const ModalidadesSection = () => {
-  const [activeCat, setActiveCat] = useState("Todas");
+  const [activeCat, setActiveCat] = useState<Categoria>("Todas");
 
-  const filtered = MODALIDADES.filter((m) => {
-    if (activeCat === "Todas") return true;
-    if (activeCat === "Força & Saúde") return m.tag.includes("Força") || m.name.includes("Musculação");
-    if (activeCat === "Lutas & Kids") return m.name.includes("Jiu-Jitsu") || m.name.includes("Muay") || m.name.includes("Kids");
-    if (activeCat === "Bem-estar & Pilates") return m.name.includes("Pilates");
-    if (activeCat === "Aulas Coletivas") return m.name.includes("Spinning") || m.name.includes("Step") || m.name.includes("Localizada");
-    return true;
-  });
+  const counts = useMemo(
+    () => Object.fromEntries(CATEGORIAS.map((c) => [c, MODALIDADES.filter((m) => matchCategoria(m, c)).length])),
+    []
+  );
+
+  const filtered = MODALIDADES.filter((m) => matchCategoria(m, activeCat));
 
   return (
-    <section id="modalidades" className="py-16 md:py-24 border-t border-border/50 relative overflow-hidden bg-background section-optimized">
-
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+    <section id="modalidades" className="section-y relative overflow-hidden bg-background section-optimized">
+      <div className="container max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-10 md:mb-12">
           <SectionHeader
             align="left"
             label="Modalidades & Treinos"
             title={
               <>
-                Encontre o Treino <span className="text-gradient-red">Perfeito</span> pra Você.
+                Encontre o treino <span className="text-gradient-red">perfeito</span> pra você.
               </>
             }
-            description="Variedade completa de treinos para todos os objetivos, idades e ritmos. Escolha a sua modalidade e treine com os melhores."
+            description="Do salão de musculação ao tatame: opções para todos os objetivos, idades e ritmos."
             className="mb-0"
           />
 
-          {/* Filtros de Categoria Deslizáveis no Mobile */}
-          <div className="flex gap-2 overflow-x-auto pb-2 md:pb-0 max-w-full no-scrollbar md:flex-wrap shrink-0">
-            {CATEGORIAS.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCat(cat)}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-heading uppercase tracking-wider whitespace-nowrap transition-all duration-300 shrink-0 ${
-                  activeCat === cat
-                    ? "bg-primary text-white shadow-md shadow-primary/20"
-                    : "bg-card border border-border text-muted-foreground hover:text-foreground hover:border-primary/40"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+          {/* Filtros: rolagem horizontal no mobile, quebra de linha no desktop */}
+          <div
+            className="-mx-4 px-4 sm:mx-0 sm:px-0 flex gap-2 overflow-x-auto no-scrollbar lg:flex-wrap lg:justify-end lg:max-w-md shrink-0"
+            role="group"
+            aria-label="Filtrar modalidades por categoria"
+          >
+            {CATEGORIAS.map((cat) => {
+              const isActive = activeCat === cat;
+              return (
+                <button
+                  key={cat}
+                  type="button"
+                  onClick={() => setActiveCat(cat)}
+                  aria-pressed={isActive}
+                  className={`shrink-0 inline-flex items-center gap-2 h-9 px-3.5 rounded-full text-[13px] font-heading font-semibold whitespace-nowrap border transition-all duration-200 ${
+                    isActive
+                      ? "bg-white text-background border-white"
+                      : "bg-white/[0.03] border-white/10 text-muted-foreground hover:text-foreground hover:border-white/25"
+                  }`}
+                >
+                  {cat}
+                  <span
+                    className={`tabular text-[11px] px-1.5 rounded-full ${
+                      isActive ? "bg-background/10 text-background" : "bg-white/[0.06] text-muted-foreground"
+                    }`}
+                  >
+                    {counts[cat]}
+                  </span>
+                </button>
+              );
+            })}
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6" aria-live="polite">
           {filtered.map((m) => {
-            // Se for Jiu-Jitsu ou Pilates, redireciona para a página dedicada
-            const internalRoute =
-              m.name.includes("Jiu-Jitsu")
-                ? "/jiu-jitsu"
-                : m.name.includes("Pilates")
-                ? "/pilates"
-                : null;
-
+            // Jiu-Jitsu e Pilates têm páginas dedicadas
+            const internalRoute = m.name.includes("Jiu-Jitsu")
+              ? "/jiu-jitsu"
+              : m.name.includes("Pilates")
+              ? "/pilates"
+              : null;
 
             const externalUrl = internalRoute
               ? null
@@ -77,48 +100,48 @@ export const ModalidadesSection = () => {
               ? "#musculacao"
               : getWhatsAppUrl(`Olá! Quero conhecer mais sobre as aulas de ${m.name} na WCF Academia!`);
 
+            const isWhatsApp = !!externalUrl?.startsWith("http");
+            const actionLabel = internalRoute ? "Ver detalhes" : isWhatsApp ? "Agendar aula grátis" : "Conhecer estrutura";
+            const ActionIcon = isWhatsApp ? MessageCircle : ArrowRight;
+
             const CardContent = (
               <>
-                <div className="aspect-[4/3] overflow-hidden relative bg-black/40">
+                <div className="relative aspect-[4/3] overflow-hidden bg-black/40">
                   <img
                     src={m.image}
                     alt={`${m.name} - WCF Academia Campina Grande`}
                     loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    decoding="async"
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/10 to-transparent" aria-hidden="true" />
 
-                  <div className="absolute top-3 left-3">
-                    <span className="text-[10px] uppercase font-bold tracking-widest bg-background/90 backdrop-blur-md text-foreground px-3 py-1 rounded-full border border-border/60">
-                      {m.tag}
-                    </span>
-                  </div>
+                  <span className="absolute top-3 left-3 chip bg-black/65 border-white/15 text-white backdrop-blur-md">
+                    {m.tag}
+                  </span>
 
-                  {internalRoute && (
-                    <div className="absolute top-3 right-3">
-                      <span className="inline-flex items-center gap-1 text-[10px] uppercase font-bold tracking-wider bg-primary/90 text-white px-2.5 py-1 rounded-full shadow">
-                        <Sparkles className="w-3 h-3" /> Ver Detalhes
-                      </span>
-                    </div>
-                  )}
+                  <span
+                    className="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/60 border border-white/15 backdrop-blur-md flex items-center justify-center text-white transition-all duration-300 group-hover:bg-red-600 group-hover:border-red-600 group-hover:rotate-45"
+                    aria-hidden="true"
+                  >
+                    <ArrowUpRight className="w-4 h-4" />
+                  </span>
                 </div>
 
-                <div className="p-5 flex-1 flex items-start justify-between gap-3">
-                  <div>
-                    <h3 className="font-heading text-lg font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
-                      {m.name}
-                    </h3>
-                    <p className="text-muted-foreground text-xs leading-relaxed">{m.desc}</p>
-                  </div>
-                  <div className="w-8 h-8 rounded-full bg-card border border-border/80 flex items-center justify-center shrink-0 group-hover:border-primary/60 group-hover:bg-primary/10 transition-colors">
-                    <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                  </div>
+                <div className="flex flex-col flex-1 p-5 sm:p-6 pt-1 sm:pt-2">
+                  <h3 className="font-heading text-xl font-bold text-foreground leading-tight">{m.name}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed line-clamp-3">{m.desc}</p>
+
+                  <span className="mt-auto pt-5 inline-flex items-center gap-2 text-sm font-heading font-semibold text-foreground group-hover:text-red-400 transition-colors">
+                    <ActionIcon className="w-4 h-4" aria-hidden="true" />
+                    {actionLabel}
+                  </span>
                 </div>
               </>
             );
 
             const cardClasses =
-              "group relative overflow-hidden rounded-2xl border border-border bg-card/70 hover:border-primary/50 transition-all duration-300 flex flex-col shadow-lg";
+              "group relative flex flex-col overflow-hidden rounded-3xl border border-white/[0.08] bg-card transition-all duration-300 hover:border-white/20 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/50";
 
             if (internalRoute) {
               return (
@@ -132,7 +155,7 @@ export const ModalidadesSection = () => {
               <a
                 key={m.name}
                 href={externalUrl || "#"}
-                {...(externalUrl?.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                {...(isWhatsApp ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 className={cardClasses}
               >
                 {CardContent}

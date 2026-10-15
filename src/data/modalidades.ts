@@ -1,11 +1,12 @@
 import jiuJitsuKidsAsset from "@/assets/jiujitsu/jiujitsu-kids.webp";
+import tatameKidsAsset from "@/assets/jiujitsu/tatame-mestre-wilson-kids.webp";
 import musculacaoAsset from "@/assets/musculacao/post-treino-pernas.webp";
-import pilatesAsset from "@/assets/banners/banner-pilates-qualidade.webp";
+import studioPilatesAsset from "@/assets/pilates/studio-pilates-aula-real.webp";
 import spinningAsset from "@/assets/aulas/aula-spinning.webp";
 import stepAsset from "@/assets/aulas/aula-step.webp";
 import muayThaiAsset from "@/assets/aulas/aula-muaythai.webp";
 import localizadaAsset from "@/assets/aulas/aula-localizada.webp";
-import jiuJitsuAsset from "@/assets/jiujitsu/jiujitsu-tatame-horarios.webp";
+import jiuJitsuIndividualAsset from "@/assets/jiujitsu/jiujitsu-individual.webp";
 import { Modalidade } from "@/types";
 
 export const MODALIDADES: Modalidade[] = [
@@ -25,7 +26,7 @@ export const MODALIDADES: Modalidade[] = [
     name: "Studio Pilates",
     tag: "Postura & Bem-estar",
     desc: "Estúdio completo com Reformer, Cadillac, Chair e Barrel, além de aulas de Pilates Solo e Alongamento.",
-    image: pilatesAsset,
+    image: studioPilatesAsset,
   },
   {
     name: "Spinning",
@@ -55,12 +56,12 @@ export const MODALIDADES: Modalidade[] = [
     name: "Jiu-Jitsu Adulto",
     tag: "Tatame Oficial",
     desc: "Aulas técnicas com mestre graduado, turmas masculinas e femininas com mensalidade a partir de R$ 60.",
-    image: jiuJitsuAsset,
+    image: jiuJitsuIndividualAsset,
   },
   {
     name: "Espaço Kids",
     tag: "Família",
     desc: "Espaço infantil exclusivo para você treinar com tranquilidade enquanto seus filhos se divertem.",
-    image: jiuJitsuKidsAsset,
+    image: tatameKidsAsset,
   },
 ];

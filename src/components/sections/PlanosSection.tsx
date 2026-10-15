@@ -1,17 +1,35 @@
-import { Check, MessageCircle, Sparkles, Trophy, Shield, Dumbbell, ShieldCheck } from "lucide-react";
+import { Check, MessageCircle, Sparkles, Trophy, Shield, Dumbbell, ShieldCheck, CreditCard, Users, type LucideIcon } from "lucide-react";
 import { getWhatsAppUrl } from "@/constants/site";
 import { SectionHeader } from "@/components/common/SectionHeader";
 
-const PLANOS = [
+interface Plano {
+  nome: string;
+  subtitulo: string;
+  icone: LucideIcon;
+  /** Plano recomendado: recebe destaque visual máximo (apenas um). */
+  recomendado?: boolean;
+  /** Selo de campanha/oferta (ex.: 1ª mensalidade grátis). */
+  oferta?: string;
+  /** Selo informativo neutro. */
+  selo?: string;
+  precoPrefixo?: string;
+  preco: string;
+  precoSufixo?: string;
+  periodo: string;
+  beneficios: string[];
+  ctaTexto: string;
+  ctaMsg: string;
+}
+
+const PLANOS: Plano[] = [
   {
     nome: "Musculação Total",
     subtitulo: "Abre às 05h e fecha à 00h",
-    destaque: "Mais Procurado",
-    isPopular: true,
-    destaqueCor: "bg-primary text-white shadow-md shadow-primary/30",
-    preco: "Consulte Condições",
-    periodo: "mensalidade ou plano recorrente",
     icone: Dumbbell,
+    recomendado: true,
+    precoPrefixo: "Mensal ou recorrente",
+    preco: "Consulte",
+    periodo: "condições especiais na matrícula",
     beneficios: [
       "Livre acesso de segunda a domingo",
       "5 personais no salão cobrindo das 05h às 00h",
@@ -19,37 +37,35 @@ const PLANOS = [
       "Maquinário biomecânico Supreme, Vitally e Impact",
       "Espaço amplo, climatizado e com pesos livres",
     ],
-    ctaTexto: "Matricule-se Agora",
+    ctaTexto: "Quero me matricular",
     ctaMsg: "Olá! Gostaria de consultar os planos e valores da Musculação na WCF Academia!",
   },
   {
     nome: "Jiu-Jitsu Kids",
     subtitulo: "Crianças de até 10 anos",
-    destaque: "1ª Mensalidade FREE",
-    isPopular: true,
-    destaqueCor: "bg-gradient-to-r from-red-600 to-amber-500 text-white animate-pulse shadow-md shadow-primary/30",
-    preco: "1ª Mensalidade Grátis",
-    periodo: "vagas limitadas por turma",
     icone: Trophy,
+    oferta: "1ª mensalidade FREE",
+    precoPrefixo: "1ª mensalidade",
+    preco: "Grátis",
+    periodo: "vagas limitadas por turma",
     beneficios: [
-      "1ª Mensalidade 100% Gratuita (até 10 anos)",
+      "1ª mensalidade 100% gratuita (até 10 anos)",
       "Desenvolvimento de disciplina, foco e respeito",
       "Tatame higienizado e ambiente 100% seguro",
       "Metodologia antibullying e coordenação motora",
       "Professores capacitados e acolhimento familiar",
     ],
-    ctaTexto: "Garantir Vaga Grátis",
+    ctaTexto: "Garantir vaga grátis",
     ctaMsg: "Olá! Quero aproveitar a campanha de 1ª Mensalidade FREE para Jiu-Jitsu Kids na WCF Academia!",
   },
   {
     nome: "Jiu-Jitsu Adulto & Feminino",
     subtitulo: "Tradição sob Mestre Wilson Camara",
-    destaque: "R$ 60,00 / mês",
-    isPopular: false,
-    destaqueCor: "bg-primary/20 text-primary border border-primary/40",
-    preco: "A partir de R$ 60",
-    periodo: "por mês",
     icone: Shield,
+    precoPrefixo: "A partir de",
+    preco: "R$ 60",
+    precoSufixo: "/mês",
+    periodo: "turmas masculina, feminina e mista",
     beneficios: [
       "Turma exclusiva de Jiu-Jitsu Feminino",
       "Turma masculina e mista com horários flexíveis",
@@ -57,139 +73,154 @@ const PLANOS = [
       "Filiação oficial CBJJE, CBJJ, IBJJF e AJP",
       "Evolução técnica contínua e defesa pessoal",
     ],
-    ctaTexto: "Quero Treinar Luta",
+    ctaTexto: "Quero treinar Jiu-Jitsu",
     ctaMsg: "Olá! Quero me matricular na turma de Jiu-Jitsu (R$ 60/mês) da WCF Academia!",
   },
   {
     nome: "WCF Studio Pilates",
-    subtitulo: "Aparelhos Clássicos & Solo",
-    destaque: "Reformer & Solo",
-    isPopular: false,
-    destaqueCor: "bg-amber-500/20 text-amber-300 border border-amber-500/40",
-    preco: "Aulas Personalizadas",
-    periodo: "sessões individuais ou turmas de solo",
+    subtitulo: "Aparelhos clássicos & Solo",
     icone: Sparkles,
+    selo: "Reformer & Solo",
+    precoPrefixo: "Aulas",
+    preco: "Personalizadas",
+    periodo: "sessões individuais ou turmas de solo",
     beneficios: [
       "Estúdio com Reformer, Cadillac, Chair e Barrel",
       "Turmas de Pilates Solo & Alongamento (Romero Mota)",
-      "Correção postural e fortalecimento profundo do Core",
+      "Correção postural e fortalecimento profundo do core",
       "Alívio efetivo de dores na coluna e articulações",
       "Atendimento seguro para maturidade e terceira idade",
     ],
-    ctaTexto: "Agendar Experimental",
+    ctaTexto: "Agendar experimental",
     ctaMsg: "Olá! Quero saber valores e agendar uma aula experimental no WCF Studio Pilates!",
   },
 ];
 
+const GARANTIAS = [
+  { icon: ShieldCheck, text: "Sem taxa oculta de matrícula", color: "text-emerald-400" },
+  { icon: Users, text: "5 personais acompanhando no salão", color: "text-primary" },
+  { icon: CreditCard, text: "PIX, débito e cartão de crédito", color: "text-gold" },
+];
+
 export const PlanosSection = () => {
   return (
-    <section id="planos" className="py-16 md:py-24 border-t border-white/10 relative overflow-hidden bg-background section-optimized">
-      {/* High-Performance Radial Ambient Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] glow-ambient-red rounded-full pointer-events-none" />
+    <section id="planos" className="section-y relative overflow-hidden bg-background section-optimized">
+      <div className="absolute inset-x-0 top-0 divider-fade" aria-hidden="true" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[900px] h-[500px] glow-ambient-red rounded-full pointer-events-none" aria-hidden="true" />
 
-
-      <div className="container mx-auto px-4 max-w-6xl relative z-10">
+      <div className="container max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeader
           label="Planos & Matrículas"
           title={
             <>
-              Transparência e o Melhor <span className="text-gradient-red">Custo-Benefício</span> de Campina Grande.
+              Transparência e o melhor <span className="text-gradient-red">custo-benefício</span> de Campina Grande.
             </>
           }
-          description="Planos flexíveis, campanhas especiais de incentivo ao esporte e acompanhamento de personais incluído."
-          className="mb-12"
+          description="Planos flexíveis, campanhas de incentivo ao esporte e acompanhamento de personais incluído."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {PLANOS.map((p, idx) => {
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 xl:gap-4 items-stretch pt-3">
+          {PLANOS.map((p) => {
             const Icon = p.icone;
             return (
-              <div
-                key={idx}
-                className={`rounded-3xl p-6 transition-all duration-300 flex flex-col justify-between group shadow-xl hover:-translate-y-1.5 relative ${
-                  p.isPopular
-                    ? "glass-card border-primary/50 shadow-primary/10 ring-1 ring-primary/30"
-                    : "glass border-white/10 hover:border-primary/40"
+              <article
+                key={p.nome}
+                className={`relative flex flex-col rounded-3xl p-6 sm:p-7 transition-all duration-300 ${
+                  p.recomendado
+                    ? "bg-gradient-to-b from-primary/[0.14] via-card to-card border border-primary/50 shadow-2xl shadow-primary/10 xl:-my-3 xl:py-10"
+                    : "bg-card border border-white/[0.08] hover:border-white/20"
                 }`}
               >
-                {p.isPopular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="px-3 py-0.5 rounded-full text-[10px] font-heading font-black uppercase tracking-widest bg-primary text-white shadow-md">
-                      Destaque WCF
+                {p.recomendado && (
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap">
+                    <span className="chip bg-red-600 border-red-600 text-white shadow-lg shadow-primary/30 uppercase tracking-wider !text-[10px] !px-3">
+                      ★ Mais escolhido
                     </span>
                   </div>
                 )}
 
-                <div>
-                  <div className="flex items-center justify-between gap-2 mb-4">
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-                      <Icon className="w-5 h-5" />
-                    </div>
-                    <span className={`px-2.5 py-1 rounded-full text-[10px] font-heading font-bold uppercase tracking-wider ${p.destaqueCor}`}>
-                      {p.destaque}
-                    </span>
-                  </div>
-
-                  <div className="min-h-[58px] mb-4">
-                    <h3 className="font-heading text-lg sm:text-xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
-                      {p.nome}
-                    </h3>
-                    <p className="text-xs text-muted-foreground">
-                      {p.subtitulo}
-                    </p>
-                  </div>
-
-                  <div className="min-h-[64px] mb-6 pb-4 border-b border-white/10 flex flex-col justify-center">
-                    <div className="font-heading text-xl sm:text-2xl font-bold text-foreground">
-                      {p.preco}
-                    </div>
-                    <div className="text-[11px] text-muted-foreground mt-0.5">
-                      {p.periodo}
-                    </div>
-                  </div>
-
-                  <ul className="space-y-2.5 mb-6 text-xs text-muted-foreground">
-                    {p.beneficios.map((b, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <Check className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
-                        <span className="text-foreground/90">{b}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="mt-auto pt-6 border-t border-white/10">
-                  <a
-                    href={getWhatsAppUrl(p.ctaMsg)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`!w-full h-12 !py-0 !text-xs sm:!text-sm font-heading font-bold uppercase tracking-wider text-center justify-center flex items-center gap-2 shadow-md whitespace-nowrap rounded-xl transition-all ${
-                      p.isPopular ? "btn-primary glow-red" : "btn-outline hover:border-primary/60 hover:text-white"
+                {/* Cabeçalho */}
+                <div className="flex items-start justify-between gap-3">
+                  <div
+                    className={`w-11 h-11 rounded-2xl flex items-center justify-center border ${
+                      p.recomendado ? "bg-red-600 border-red-600 text-white" : "bg-primary/10 border-primary/20 text-primary"
                     }`}
                   >
-                    <MessageCircle className="w-4 h-4 shrink-0" />
-                    <span>{p.ctaTexto}</span>
-                  </a>
+                    <Icon className="w-5 h-5" aria-hidden="true" />
+                  </div>
+                  {p.oferta && (
+                    <span className="chip bg-gold/10 border-gold/30 text-gold">
+                      <Sparkles className="w-3 h-3" aria-hidden="true" />
+                      {p.oferta}
+                    </span>
+                  )}
+                  {p.selo && <span className="chip bg-white/[0.04] border-white/10 text-muted-foreground">{p.selo}</span>}
                 </div>
-              </div>
+
+                <h3 className="mt-5 font-heading text-xl font-bold text-foreground leading-tight">{p.nome}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">{p.subtitulo}</p>
+
+                {/* Preço */}
+                <div className="mt-6 pb-6 border-b border-white/[0.08]">
+                  {p.precoPrefixo && (
+                    <div className="text-xs font-medium text-muted-foreground uppercase tracking-wider">{p.precoPrefixo}</div>
+                  )}
+                  <div className="mt-1 flex items-baseline gap-1">
+                    <span
+                      className={`font-heading font-bold tracking-tight text-foreground ${
+                        p.preco.length > 9 ? "text-2xl" : "text-3xl sm:text-[2rem]"
+                      }`}
+                    >
+                      {p.preco}
+                    </span>
+                    {p.precoSufixo && <span className="text-sm text-muted-foreground font-medium">{p.precoSufixo}</span>}
+                  </div>
+                  <div className="mt-1 text-[13px] text-muted-foreground">{p.periodo}</div>
+                </div>
+
+                {/* Benefícios */}
+                <ul className="mt-6 space-y-3 text-sm flex-1">
+                  {p.beneficios.map((b) => (
+                    <li key={b} className="flex items-start gap-3">
+                      <span
+                        className={`mt-0.5 w-5 h-5 shrink-0 rounded-full flex items-center justify-center ${
+                          p.recomendado ? "bg-red-600 text-white" : "bg-white/[0.06] text-foreground"
+                        }`}
+                        aria-hidden="true"
+                      >
+                        <Check className="w-3 h-3" strokeWidth={3} />
+                      </span>
+                      <span className="text-foreground/85 leading-snug">{b}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* CTA */}
+                <a
+                  href={getWhatsAppUrl(p.ctaMsg)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`mt-8 w-full ${p.recomendado ? "btn-primary" : "btn-outline"} !py-3.5`}
+                >
+                  <MessageCircle className="w-4 h-4 shrink-0" aria-hidden="true" />
+                  {p.ctaTexto}
+                </a>
+              </article>
             );
           })}
         </div>
 
-        {/* Banner de Garantias & Acolhimento */}
-        <div className="mt-12 p-6 rounded-2xl glass border border-white/10 flex flex-wrap items-center justify-around gap-4 text-center">
-          <div className="flex items-center gap-2 text-xs text-muted-foreground">
-            <ShieldCheck className="w-4 h-4 text-emerald-400" />
-            <span>Sem taxa oculta de matrícula</span>
-          </div>
-          <div className="flex items-center gap-2 text-xs text-muted-foreground">
-            <Check className="w-4 h-4 text-primary" />
-            <span>5 personais acompanhando no salão</span>
-          </div>
-          <div className="flex items-center gap-2 text-xs text-muted-foreground">
-            <Sparkles className="w-4 h-4 text-amber-400" />
-            <span>Pagamento via PIX, Débito e Cartão de Crédito</span>
-          </div>
+        {/* Garantias */}
+        <div className="mt-12 md:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-px rounded-2xl overflow-hidden border border-white/[0.08] bg-white/[0.08]">
+          {GARANTIAS.map((g) => {
+            const GIcon = g.icon;
+            return (
+              <div key={g.text} className="flex items-center justify-center gap-2.5 px-5 py-4 bg-background text-sm text-muted-foreground">
+                <GIcon className={`w-4 h-4 shrink-0 ${g.color}`} aria-hidden="true" />
+                <span>{g.text}</span>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -197,4 +228,3 @@ export const PlanosSection = () => {
 };
 
 export default PlanosSection;
-

@@ -1,121 +1,101 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Sparkles, Shield, Dumbbell, Clock } from "lucide-react";
-import posterPilates from "@/assets/banners/banner-pilates-qualidade.webp";
+import posterPilates from "@/assets/pilates/studio-pilates-aula-real.webp";
 import posterKids from "@/assets/jiujitsu/jiujitsu-kids.webp";
 import posterMusc from "@/assets/musculacao/post-treino-pernas.webp";
-import posterEquipe from "@/assets/professores/professor-radames-aniversario.webp";
+import posterEquipe from "@/assets/professores/personal-renally-destaque.webp";
+import { SectionHeader } from "@/components/common/SectionHeader";
 
 const PORTALS = [
   {
-    tag: "Studio Exclusivo",
-    tagColor: "text-amber-400 bg-amber-500/10 border-amber-500/20",
+    tag: "Studio exclusivo",
+    tagColor: "text-gold bg-gold/10 border-gold/25",
     icon: Sparkles,
     title: "WCF Studio Pilates",
     desc: "Reformer clássico, Cadillac, alinhamento postural e turmas de Pilates Solo & Alongamento.",
     image: posterPilates,
     href: "/pilates",
-    buttonText: "Conhecer Studio Pilates",
+    buttonText: "Conhecer o Studio",
   },
   {
-    tag: "1ª Mensalidade FREE",
-    tagColor: "text-red-400 bg-red-500/10 border-red-500/20",
+    tag: "1ª mensalidade FREE",
+    tagColor: "text-red-400 bg-primary/10 border-primary/25",
     icon: Shield,
     title: "Jiu-Jitsu Kids & Lutas",
-    desc: "Tatame seguro, foco e autodefesa para crianças até 10 anos, turmas feminina e adultos.",
+    desc: "Tatame seguro, foco e autodefesa para crianças até 10 anos, turmas feminina e adulto.",
     image: posterKids,
     href: "/jiu-jitsu",
-    buttonText: "Explorar Tatame & Kids",
+    buttonText: "Explorar o tatame",
   },
   {
     tag: "Aulas & Musculação",
-    tagColor: "text-primary bg-primary/10 border-primary/20",
+    tagColor: "text-foreground bg-white/[0.06] border-white/15",
     icon: Dumbbell,
     title: "Modalidades & Treinos",
     desc: "Spinning, Step, Localizada, Muay Thai e musculação biomecânica de alto rendimento.",
     image: posterMusc,
     href: "/modalidades",
-    buttonText: "Ver Todas as Modalidades",
+    buttonText: "Ver modalidades",
   },
   {
     tag: "05h às 00h",
     tagColor: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
     icon: Clock,
-    title: "5 Personais de Plantão",
+    title: "5 personais de plantão",
     desc: "Escala contínua cobrindo todas as 19h diárias com acompanhamento presencial no salão.",
     image: posterEquipe,
     href: "/equipe",
-    buttonText: "Conhecer a Equipe",
+    buttonText: "Conhecer a equipe",
   },
 ];
 
 export const QuickPortals = () => {
   return (
-    <section className="py-16 md:py-24 bg-background relative overflow-hidden section-optimized">
-      {/* High-Performance Radial Ambient Glow */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[350px] glow-ambient-red rounded-full pointer-events-none" />
+    <section className="section-y bg-background relative overflow-hidden section-optimized">
+      <div className="container max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+        <SectionHeader
+          label="Estrutura completa"
+          title={
+            <>
+              Escolha o seu objetivo na <span className="text-gradient-red">WCF</span>.
+            </>
+          }
+          description="Espaços especializados para cada momento — seu e da sua família."
+        />
 
-
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-card border border-white/10 text-xs font-heading uppercase tracking-[0.2em] text-primary mb-3">
-            Estrutura Completa
-          </div>
-          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-4">
-            Escolha o seu objetivo na <span className="text-gradient-red">WCF</span>.
-          </h2>
-          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-            Navegue pelos espaços especializados da academia e descubra o treino ideal para o seu momento e da sua família.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          {PORTALS.map((p, idx) => {
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+          {PORTALS.map((p) => {
             const Icon = p.icon;
             return (
-              <div
-                key={idx}
-                className="group relative rounded-3xl overflow-hidden glass-card border border-white/10 hover:border-primary/50 transition-all duration-300 flex flex-col justify-between shadow-xl hover:-translate-y-1.5"
+              <Link
+                key={p.href}
+                to={p.href}
+                className="group relative flex flex-col sm:flex-row overflow-hidden rounded-3xl border border-white/[0.08] bg-card transition-all duration-300 hover:border-white/20 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/50"
               >
-                <div className="p-6 sm:p-8 relative z-10 flex flex-col justify-between h-full">
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <span
-                        className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-heading font-bold uppercase tracking-wider border ${p.tagColor}`}
-                      >
-                        <Icon className="w-3.5 h-3.5" />
-                        {p.tag}
-                      </span>
-                    </div>
-
-                    <h3 className="font-heading text-xl sm:text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                      {p.title}
-                    </h3>
-
-                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-6">
-                      {p.desc}
-                    </p>
-                  </div>
-
-                  {/* Poster Thumbnail */}
-                  <div className="relative aspect-[16/9] rounded-2xl overflow-hidden mb-6 border border-white/10 bg-card">
-                    <img
-                      src={p.image}
-                      alt={p.title}
-                      loading="lazy"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent" />
-                  </div>
-
-                  <Link
-                    to={p.href}
-                    className="inline-flex items-center justify-between w-full p-4 rounded-xl bg-card/90 border border-white/10 hover:border-primary text-xs font-heading font-bold uppercase tracking-wider text-foreground hover:text-white hover:bg-primary transition-all group/btn shadow-md"
-                  >
-                    <span>{p.buttonText}</span>
-                    <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                  </Link>
+                <div className="relative sm:w-[42%] aspect-[16/10] sm:aspect-auto shrink-0 overflow-hidden bg-black/40">
+                  <img
+                    src={p.image}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r from-transparent via-transparent to-card/80" aria-hidden="true" />
                 </div>
-              </div>
+
+                <div className="flex flex-col flex-1 p-6 sm:p-7">
+                  <span className={`chip self-start ${p.tagColor}`}>
+                    <Icon className="w-3.5 h-3.5" aria-hidden="true" />
+                    {p.tag}
+                  </span>
+                  <h3 className="mt-4 font-heading text-xl sm:text-2xl font-bold text-foreground leading-tight">{p.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+                  <span className="mt-auto pt-6 inline-flex items-center gap-2 text-sm font-heading font-semibold text-foreground group-hover:text-red-400 transition-colors">
+                    {p.buttonText}
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                  </span>
+                </div>
+              </Link>
             );
           })}
         </div>
@@ -125,4 +105,3 @@ export const QuickPortals = () => {
 };
 
 export default QuickPortals;
-

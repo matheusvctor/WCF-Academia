@@ -5,7 +5,7 @@ import ParallaxBanner from "@/components/common/ParallaxBanner";
 import JiuJitsuKidsSection from "@/components/sections/JiuJitsuKidsSection";
 import UnidadesSection from "@/components/sections/UnidadesSection";
 import LeadCaptureSection from "@/components/sections/LeadCaptureSection";
-import bannerJiuJitsu from "@/assets/jiujitsu/jiujitsu-tatame-horarios.webp";
+import bannerJiuJitsu from "@/assets/jiujitsu/tatame-mestre-wilson-equipe.webp";
 import { Shield } from "lucide-react";
 import { usePageTitle } from "@/hooks/usePageTitle";
 

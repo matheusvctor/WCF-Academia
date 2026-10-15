@@ -1,13 +1,18 @@
-import fundadorImg from "@/assets/fundador.webp";
-import { Award, GraduationCap, Dumbbell, Heart } from "lucide-react";
+import wilsonCamaraImg from "@/assets/wilson-camara.webp";
+import wilsonCarteirinhaImg from "@/assets/wilson-carteirinha.webp";
+import { Award, GraduationCap, Dumbbell, Heart, ShieldCheck } from "lucide-react";
 import { Credencial, Pilar } from "@/types";
 
 export const FUNDADOR_INFO = {
   nome: "Wilson Camara Filho",
-  foto: fundadorImg,
-  anosExperiencia: "15+",
+  titulo: "Mestre & Fundador WCF",
+  faixa: "Faixa Preta 6º Grau",
+  cref: "CREF 007180-G/PB",
+  foto: wilsonCamaraImg,
+  carteirinha: wilsonCarteirinhaImg,
+  anosExperiencia: "25+",
   frase: "A verdadeira vitória não acontece apenas nas competições, mas na evolução diária de cada pessoa.",
-  bio: "Bacharel e licenciado em Educação Física, Faixa Preta 6º Grau de Jiu-Jitsu (CBJJE/CBJJP) e 5º Grau (CBJJ/IBJJF/AJP), Personal Trainer (CREF 007180-G/PB), instrutor de Pilates, treinador certificado Core 360 e com especialização em treinamento para terceira idade. Décadas dedicadas a formar atletas, instrutores e centenas de alunos.",
+  bio: "Bacharel e licenciado em Educação Física, Faixa Preta 6º Grau de Jiu-Jitsu (CBJJE/CBJJP) e 5º Grau (CBJJ/IBJJF/AJP), Personal Trainer (CREF 007180-G/PB), instrutor de Pilates, treinador certificado Core 360 e com especialização em treinamento para terceira idade. Mais de 25 anos dedicados à formação de atletas, instrutores e centenas de alunos em Campina Grande.",
 };
 
 export const CREDENCIAIS: Credencial[] = [

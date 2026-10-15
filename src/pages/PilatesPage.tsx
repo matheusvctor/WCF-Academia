@@ -4,7 +4,7 @@ import WhatsAppFloat from "@/components/layout/WhatsAppFloat";
 import ParallaxBanner from "@/components/common/ParallaxBanner";
 import PilatesSection from "@/components/sections/PilatesSection";
 import LeadCaptureSection from "@/components/sections/LeadCaptureSection";
-import bannerPilates from "@/assets/banners/banner-pilates-qualidade.webp";
+import bannerPilates from "@/assets/pilates/studio-pilates-aula-real.webp";
 import { Sparkles } from "lucide-react";
 import { usePageTitle } from "@/hooks/usePageTitle";
 

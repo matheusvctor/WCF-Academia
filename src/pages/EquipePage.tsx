@@ -7,7 +7,7 @@ import SobreSection from "@/components/sections/SobreSection";
 import GaleriaSection from "@/components/sections/GaleriaSection";
 import CertificadosSection from "@/components/sections/CertificadosSection";
 import UnidadesSection from "@/components/sections/UnidadesSection";
-import bannerEquipe from "@/assets/professores/professor-radames-aniversario.webp";
+import bannerEquipe from "@/assets/jiujitsu/tatame-mestre-wilson-equipe.webp";
 import { Users } from "lucide-react";
 import { usePageTitle } from "@/hooks/usePageTitle";
 

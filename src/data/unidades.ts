@@ -1,6 +1,6 @@
 import logoWCF from "@/assets/logo-wcf-real.webp";
 import matrizImg from "@/assets/wilson-camara.webp";
-import tatameImg from "@/assets/jiujitsu/jiujitsu-tatame-horarios.webp";
+import tatameImg from "@/assets/jiujitsu/tatame-mestre-wilson-equipe.webp";
 import { Unidade } from "@/types";
 
 export const UNIDADES: Unidade[] = [

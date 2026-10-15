@@ -1,11 +1,13 @@
 import studioBanner from "@/assets/banners/banner-pilates-qualidade.webp";
+import studioPilatesAula from "@/assets/pilates/studio-pilates-aula-real.webp";
+import studioPilatesCadillac from "@/assets/pilates/studio-pilates-cadillac.webp";
 import soloPoster from "@/assets/aulas/aula-pilates-solo.webp";
 import longevidadeBanner from "@/assets/banners/banner-saude-longevidade.webp";
-import comecoZeroBanner from "@/assets/banners/banner-comeco-zero.webp";
 import { ImageGalleryItem } from "@/types";
 
 export const PILATES_STUDIO_INFO = {
-  bannerImage: studioBanner,
+  bannerImage: studioPilatesAula,
+  graphicBanner: studioBanner,
   soloImage: soloPoster,
   tagline: "Seu corpo sente. Sua mente agradece.",
   beneficios: [
@@ -38,8 +40,8 @@ export const PILATES_STUDIO_INFO = {
 };
 
 export const FOTOS_PILATES: ImageGalleryItem[] = [
-  { src: studioBanner, alt: "Pilates Reformer e aparelhos clássicos WCF" },
-  { src: soloPoster, alt: "Pilates Solo e Alongamento com Romero Mota" },
-  { src: longevidadeBanner, alt: "Saúde articular, postura e longevidade funcional" },
-  { src: comecoZeroBanner, alt: "Aulas para iniciantes, intermediários e avançados" },
+  { src: studioPilatesAula, alt: "Aulas de Studio Pilates nos aparelhos Reformer na WCF" },
+  { src: studioPilatesCadillac, alt: "Aparelho Cadillac com treino de controle motor e flexibilidade" },
+  { src: soloPoster, alt: "Pôster oficial de Pilates Solo e Alongamento com Romero Mota" },
+  { src: studioBanner, alt: "WCF Studio Pilates - Postura, força e qualidade de vida" },
 ];

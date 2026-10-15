@@ -3,6 +3,7 @@ import HeroSection from "@/components/sections/HeroSection";
 import QuickPortals from "@/components/sections/QuickPortals";
 import SocialProofSection from "@/components/sections/SocialProofSection";
 import ProfessoresSection from "@/components/sections/ProfessoresSection";
+import FundadorSection from "@/components/sections/FundadorSection";
 import PlanosSection from "@/components/sections/PlanosSection";
 import GaleriaSection from "@/components/sections/GaleriaSection";
 import DiferenciaisSection from "@/components/sections/DiferenciaisSection";
@@ -28,6 +29,7 @@ export const Index = () => {
         <SocialProofSection />
         <QuickPortals />
         <ProfessoresSection />
+        <FundadorSection />
         <PlanosSection />
         <GaleriaSection />
         <DiferenciaisSection />

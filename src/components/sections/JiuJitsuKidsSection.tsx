@@ -1,9 +1,13 @@
 import { useState } from 'react';
-import { MessageCircle, ShieldCheck, Brain, Sparkles, HeartHandshake, CheckCircle2, Calendar, Clock, Trophy } from 'lucide-react';
+import { MessageCircle, ShieldCheck, Brain, Sparkles, HeartHandshake, CheckCircle2, Calendar, Clock, Trophy, Award, GraduationCap, ZoomIn, IdCard, Users } from 'lucide-react';
 import { SectionHeader } from '@/components/common/SectionHeader';
 import { JIU_JITSU_KIDS_HERO, JIU_JITSU_MODALIDADES, JIU_JITSU_TATAME_INFO } from '@/data/jiujitsu';
 import { getWhatsAppUrl } from '@/constants/site';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import wilsonCamaraImg from '@/assets/wilson-camara.webp';
+import wilsonCarteirinhaImg from '@/assets/wilson-carteirinha.webp';
+import tatameKidsImg from '@/assets/jiujitsu/tatame-mestre-wilson-kids.webp';
+import tatameEquipeImg from '@/assets/jiujitsu/tatame-mestre-wilson-equipe.webp';
 
 const ICON_MAP = {
   Brain,
@@ -187,6 +191,111 @@ export const JiuJitsuKidsSection = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Bloco de Autoridade: Liderança e Supervisão do Mestre Wilson Camara Filho */}
+        <div className="surface p-6 sm:p-10 rounded-3xl border-primary/30 bg-gradient-to-br from-card via-card to-primary/[0.08] mb-16 shadow-2xl overflow-hidden">
+          <div className="grid lg:grid-cols-12 gap-8 items-center">
+            {/* Fotos do Mestre Wilson */}
+            <div className="lg:col-span-5 flex flex-col items-center">
+              <div
+                className="relative group rounded-2xl overflow-hidden border border-white/15 max-w-xs shadow-2xl cursor-pointer bg-black/50"
+                onClick={() => setSelectedImg(wilsonCamaraImg)}
+              >
+                <img
+                  src={wilsonCamaraImg}
+                  alt="Mestre Wilson Camara Filho - Faixa Preta 6º Grau"
+                  className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40">
+                  <span className="chip bg-black/80 border-white/20 text-white shadow-xl">
+                    <ZoomIn className="w-3.5 h-3.5 text-primary" /> Ampliar retrato
+                  </span>
+                </div>
+                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                  <span className="chip bg-red-600 border-red-500/40 text-white !text-[10px] font-bold uppercase tracking-wider">
+                    Faixa Preta 6º Grau
+                  </span>
+                  <span className="text-[10px] text-white/90 font-mono font-semibold bg-black/60 px-2 py-0.5 rounded">
+                    CREF 007180-G/PB
+                  </span>
+                </div>
+              </div>
+
+              {/* Provas Reais: Carteirinha 001 e Tatame com a Turma */}
+              <div className="grid grid-cols-2 gap-2.5 w-full max-w-xs mt-3">
+                <div
+                  className="rounded-xl border border-white/10 bg-background/80 p-2 flex items-center gap-2 cursor-pointer hover:border-primary/50 transition-all"
+                  onClick={() => setSelectedImg(wilsonCarteirinhaImg)}
+                >
+                  <img src={wilsonCarteirinhaImg} alt="Carteirinha 001 Mestre Wilson" className="w-10 h-8 rounded object-cover" />
+                  <div className="min-w-0">
+                    <div className="text-[10px] font-bold text-foreground truncate">Carteirinha 001</div>
+                    <div className="text-[9px] text-muted-foreground">Registro Oficial</div>
+                  </div>
+                </div>
+                <div
+                  className="rounded-xl border border-white/10 bg-background/80 p-2 flex items-center gap-2 cursor-pointer hover:border-primary/50 transition-all"
+                  onClick={() => setSelectedImg(tatameKidsImg)}
+                >
+                  <img src={tatameKidsImg} alt="Mestre Wilson no Tatame com Turma Kids" className="w-10 h-8 rounded object-cover" />
+                  <div className="min-w-0">
+                    <div className="text-[10px] font-bold text-foreground truncate">Com as Crianças</div>
+                    <div className="text-[9px] text-muted-foreground">No Tatame</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Texto de Autoridade */}
+            <div className="lg:col-span-7 space-y-5">
+              <div>
+                <span className="section-label !mb-2">
+                  <ShieldCheck className="w-3.5 h-3.5 text-primary" />
+                  Mestre Geral e Fundador
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-heading font-bold text-foreground mb-3 leading-tight">
+                  Supervisão direta do <span className="text-gradient-red">Mestre Wilson Camara Filho</span>.
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  Aqui na WCF, seu filho e você treinam sob a supervisão direta de quem construiu a tradição da equipe desde 2001. Formado em Educação Física (CREF 007180-G/PB) e Faixa Preta 6º Grau, o Mestre Wilson garante disciplina rígida com acolhimento pedagógico e total segurança no tatame.
+                </p>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-3">
+                <div className="p-3 rounded-xl bg-background/60 border border-white/[0.06] flex items-center gap-2.5">
+                  <Award className="w-4 h-4 text-primary shrink-0" />
+                  <span className="text-xs font-medium text-foreground">Faixa Preta 6º Grau CBJJE / CBJJP</span>
+                </div>
+                <div className="p-3 rounded-xl bg-background/60 border border-white/[0.06] flex items-center gap-2.5">
+                  <Award className="w-4 h-4 text-secondary shrink-0" />
+                  <span className="text-xs font-medium text-foreground">Faixa Preta 5º Grau CBJJ / IBJJF / AJP</span>
+                </div>
+                <div className="p-3 rounded-xl bg-background/60 border border-white/[0.06] flex items-center gap-2.5">
+                  <GraduationCap className="w-4 h-4 text-primary shrink-0" />
+                  <span className="text-xs font-medium text-foreground">Educação Física • CREF 007180-G/PB</span>
+                </div>
+                <div className="p-3 rounded-xl bg-background/60 border border-white/[0.06] flex items-center gap-2.5">
+                  <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span className="text-xs font-medium text-foreground">Metodologia Antibullying e Família</span>
+                </div>
+              </div>
+
+              <div className="pt-2">
+                <a
+                  href={getWhatsAppUrl("Olá Mestre Wilson! Gostaria de agendar uma aula experimental de Jiu-Jitsu na WCF Academia!")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary !py-3.5 !px-7 text-xs font-heading font-bold inline-flex items-center gap-2"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>Falar com o Mestre Wilson no WhatsApp</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 

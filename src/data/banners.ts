@@ -1,8 +1,9 @@
 import banner1 from "@/assets/banners/banner-comeco-zero.webp";
-import banner2 from "@/assets/banners/banner-comecar-dificil.webp";
+import bannerWilson from "@/assets/banners/banner-mestre-wilson.webp";
 import bannerKids from "@/assets/jiujitsu/jiujitsu-kids.webp";
-import banner3 from "@/assets/banners/banner-saude-longevidade.webp";
 import banner4 from "@/assets/banners/banner-pilates-qualidade.webp";
+import banner3 from "@/assets/banners/banner-saude-longevidade.webp";
+import banner2 from "@/assets/banners/banner-comecar-dificil.webp";
 import { BannerItem } from "@/types";
 
 export const BANNERS: BannerItem[] = [
@@ -11,6 +12,12 @@ export const BANNERS: BannerItem[] = [
     alt: "Todo mundo começa do zero — O segredo é não parar | WCF Academia",
     tag: "Musculação",
     badge: "05h às 00h",
+  },
+  {
+    src: bannerWilson,
+    alt: "Mestre Wilson Camara Filho — Fundador WCF Academia & Jiu-Jitsu Individual R$ 60",
+    tag: "Fundador & Mestre",
+    badge: "Faixa Preta 6º Grau",
   },
   {
     src: bannerKids,

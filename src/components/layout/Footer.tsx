@@ -1,116 +1,142 @@
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo-wcf-real.webp";
-import { Instagram, MapPin, Phone, MessageCircle, Clock, ShieldCheck } from "lucide-react";
+import { Instagram, MapPin, Phone, MessageCircle, ArrowUp } from "lucide-react";
 import { SITE_INFO, NAV_LINKS, getWhatsAppUrl } from "@/constants/site";
+import { HORARIOS_FUNCIONAMENTO } from "@/data/horarios";
 
 export const Footer = () => {
   return (
-    <footer className="border-t border-white/10 bg-card/90 md:backdrop-blur-md py-12 md:py-16 relative overflow-hidden">
-      {/* High-Performance subtle radial ambient glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-32 glow-ambient-red rounded-full pointer-events-none opacity-40" />
+    <footer className="relative overflow-hidden border-t border-white/[0.08] bg-card/60">
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-40 glow-ambient-red rounded-full pointer-events-none opacity-50" aria-hidden="true" />
 
-
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 mb-10">
-          {/* Coluna 1: Marca & Resumo */}
-          <div className="md:col-span-4 space-y-4">
-            <Link to="/" className="flex items-center gap-3 group">
+      <div className="container max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 pt-16 pb-8 md:pt-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
+          {/* Marca */}
+          <div className="sm:col-span-2 lg:col-span-4 space-y-5">
+            <Link to="/" className="inline-flex items-center gap-3 group">
               <img
                 src={logo}
                 alt={SITE_INFO.name}
-                width={44}
-                height={44}
+                width={48}
+                height={48}
+                loading="lazy"
                 className="rounded-full ring-2 ring-primary/30 group-hover:ring-primary transition-all object-cover"
               />
-              <div className="flex flex-col">
-                <span className="font-heading font-black text-base uppercase tracking-wider text-foreground">
-                  {SITE_INFO.name}
-                </span>
-                <span className="text-[10px] text-muted-foreground uppercase tracking-widest">
-                  Desde {SITE_INFO.since} • Campina Grande
-                </span>
-              </div>
+              <span className="flex flex-col">
+                <span className="font-heading font-bold text-lg text-foreground">{SITE_INFO.name}</span>
+                <span className="text-xs text-muted-foreground">Desde {SITE_INFO.since} · Campina Grande</span>
+              </span>
             </Link>
-            <p className="text-xs text-muted-foreground leading-relaxed max-w-sm">
-              Mais de 10 anos transformando vidas com musculação ininterrupta das 05h às 00h (5 personais no salão), Studio Pilates Reformer clássico e tatame oficial de Jiu-Jitsu.
+            <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
+              Mais de 10 anos transformando vidas com musculação das 05h às 00h, Studio Pilates Reformer e tatame
+              oficial de Jiu-Jitsu.
             </p>
-            <div className="pt-1 flex items-center gap-3">
+            <div className="flex flex-wrap items-center gap-3">
               <a
                 href={getWhatsAppUrl("Olá! Gostaria de falar com o atendimento da WCF Academia!")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs font-heading font-bold text-white bg-primary/90 hover:bg-primary px-4 py-2 rounded-xl shadow-md transition-colors"
+                className="btn-primary !py-2.5 !px-4"
               >
-                <MessageCircle className="w-3.5 h-3.5" /> Fale Conosco
+                <MessageCircle className="w-4 h-4" aria-hidden="true" />
+                Fale conosco
               </a>
-              <span className="text-[11px] text-emerald-400 font-medium flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                Matrículas Abertas
-              </span>
+              <a
+                href={SITE_INFO.instagram.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Instagram ${SITE_INFO.instagram.handle}`}
+                className="w-10 h-10 rounded-xl border border-white/10 flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-white/25 transition-colors"
+              >
+                <Instagram className="w-4 h-4" aria-hidden="true" />
+              </a>
             </div>
           </div>
 
-          {/* Coluna 2: Navegação Rápida */}
-          <div className="md:col-span-4 space-y-3">
-            <h4 className="font-heading text-xs font-bold uppercase tracking-widest text-foreground flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-primary" />
-              Páginas & Treinos
-            </h4>
-            <ul className="grid grid-cols-2 gap-2 text-xs">
+          {/* Navegação */}
+          <nav className="lg:col-span-2" aria-label="Rodapé">
+            <h4 className="font-heading text-sm font-bold text-foreground">Navegação</h4>
+            <ul className="mt-4 space-y-2.5 text-sm">
               {NAV_LINKS.map((l) => (
                 <li key={l.href}>
-                  <Link
-                    to={l.href}
-                    className="text-muted-foreground hover:text-primary transition-colors py-1 inline-flex items-center gap-1.5 group"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-white/20 group-hover:bg-primary transition-colors" />
-                    <span>{l.label}</span>
+                  <Link to={l.href} className="text-muted-foreground hover:text-foreground transition-colors">
+                    {l.label}
                   </Link>
                 </li>
               ))}
             </ul>
+          </nav>
+
+          {/* Horários */}
+          <div className="lg:col-span-3">
+            <h4 className="font-heading text-sm font-bold text-foreground">Horário de treino</h4>
+            <dl className="mt-4 space-y-3 text-sm">
+              {HORARIOS_FUNCIONAMENTO.map((f) => (
+                <div key={f.dia}>
+                  <dt className="text-muted-foreground">{f.dia}</dt>
+                  <dd className="tabular text-foreground font-medium">{f.horario}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
 
-          {/* Coluna 3: Endereço & Horários */}
-          <div className="md:col-span-4 space-y-3">
-            <h4 className="font-heading text-xs font-bold uppercase tracking-widest text-foreground flex items-center gap-2">
-              <Clock className="w-4 h-4 text-primary" />
-              Localização & Horários
-            </h4>
-            <div className="space-y-2 text-xs text-muted-foreground">
-              <p className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                <span>{SITE_INFO.address.full}</span>
-              </p>
-              <p className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-primary shrink-0" />
-                <span>{SITE_INFO.phone}</span>
-              </p>
-              <p>
+          {/* Contato */}
+          <div className="lg:col-span-3">
+            <h4 className="font-heading text-sm font-bold text-foreground">Contato</h4>
+            <ul className="mt-4 space-y-3 text-sm">
+              <li>
+                <a
+                  href={SITE_INFO.maps.directionsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-2.5 text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" aria-hidden="true" />
+                  <span>{SITE_INFO.address.full}</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`tel:+${SITE_INFO.phoneRaw}`}
+                  className="flex items-center gap-2.5 text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <Phone className="w-4 h-4 text-primary shrink-0" aria-hidden="true" />
+                  <span>{SITE_INFO.phone}</span>
+                </a>
+              </li>
+              <li>
                 <a
                   href={SITE_INFO.instagram.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+                  className="flex items-center gap-2.5 text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  <Instagram className="w-4 h-4 text-primary shrink-0" />
+                  <Instagram className="w-4 h-4 text-primary shrink-0" aria-hidden="true" />
                   <span>{SITE_INFO.instagram.handle}</span>
                 </a>
-              </p>
-              <div className="p-2.5 rounded-xl bg-card border border-white/10 text-[11px] text-foreground/90 space-y-1 mt-2">
-                <div className="font-semibold text-primary">Horário Oficial de Treino:</div>
-                <div>{SITE_INFO.workingHours.summary}</div>
-              </div>
-            </div>
+              </li>
+            </ul>
+            <span className="mt-5 inline-flex items-center gap-2 chip bg-emerald-500/10 border-emerald-500/20 text-emerald-400">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" aria-hidden="true" />
+              Matrículas abertas
+            </span>
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-[11px] text-muted-foreground/80">
-          <div>
+        <div className="mt-14 pt-6 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
+          <p>
             © {new Date().getFullYear()} {SITE_INFO.name}. Todos os direitos reservados.
-          </div>
-          <div className="flex items-center gap-2">
-            <span>Jardim Paulistano • Campina Grande – PB</span>
+          </p>
+          <div className="flex items-center gap-4">
+            <span>Jardim Paulistano · Campina Grande – PB</span>
+            <button
+              type="button"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              aria-label="Voltar ao topo"
+              className="w-8 h-8 rounded-lg border border-white/10 flex items-center justify-center hover:text-foreground hover:border-white/25 transition-colors"
+            >
+              <ArrowUp className="w-3.5 h-3.5" aria-hidden="true" />
+            </button>
           </div>
         </div>
       </div>
@@ -119,4 +145,3 @@ export const Footer = () => {
 };
 
 export default Footer;
-
