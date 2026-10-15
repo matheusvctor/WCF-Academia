@@ -1,8 +1,8 @@
 import banner1 from "@/assets/banners/banner-comeco-zero.webp";
 import bannerWilson from "@/assets/banners/banner-mestre-wilson.webp";
 import bannerKids from "@/assets/jiujitsu/jiujitsu-kids.webp";
-import banner4 from "@/assets/banners/banner-pilates-qualidade.webp";
-import banner3 from "@/assets/banners/banner-saude-longevidade.webp";
+import bannerFeminino from "@/assets/jiujitsu/jiujitsu-feminino.webp";
+import bannerSaude from "@/assets/banners/banner-saude-longevidade-4-5.webp";
 import banner2 from "@/assets/banners/banner-comecar-dificil.webp";
 import { BannerItem } from "@/types";
 
@@ -26,13 +26,13 @@ export const BANNERS: BannerItem[] = [
     badge: "1ª Mensalidade FREE",
   },
   {
-    src: banner4,
-    alt: "Studio Pilates — Mais força, postura e qualidade de vida | WCF Academia",
-    tag: "Studio Pilates",
-    badge: "Reformer & Solo",
+    src: bannerFeminino,
+    alt: "Jiu-Jitsu Feminino — 1ª Mensalidade FREE (turma exclusiva) | WCF Academia",
+    tag: "Jiu-Jitsu Feminino",
+    badge: "1ª Mensalidade FREE",
   },
   {
-    src: banner3,
+    src: bannerSaude,
     alt: "Idade não limita — Movimento liberta | Musculação e Longevidade WCF",
     tag: "Saúde & Longevidade",
     badge: "Autonomia",

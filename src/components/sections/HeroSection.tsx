@@ -34,6 +34,8 @@ const PILL_ICONS: Record<string, LucideIcon> = {
   "Musculação": Dumbbell,
   "Fundador & Mestre": Award,
   "Jiu-Jitsu Kids": Trophy,
+  "Jiu-Jitsu Feminino": Shield,
+  "Jiu-Jitsu Adulto": Award,
   "Studio Pilates": Sparkles,
   "Saúde & Longevidade": HeartPulse,
   "Superação": Flame,

@@ -73,7 +73,7 @@ const PLANOS: Plano[] = [
       "Filiação oficial CBJJE, CBJJ, IBJJF e AJP",
       "Evolução técnica contínua e defesa pessoal",
     ],
-    ctaTexto: "Quero treinar Jiu-Jitsu",
+    ctaTexto: "Treinar Jiu-Jitsu",
     ctaMsg: "Olá! Quero me matricular na turma de Jiu-Jitsu (R$ 60/mês) da WCF Academia!",
   },
   {
@@ -195,15 +195,15 @@ export const PlanosSection = () => {
                   ))}
                 </ul>
 
-                {/* CTA */}
+                {/* CTA Padronizado */}
                 <a
                   href={getWhatsAppUrl(p.ctaMsg)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`mt-8 w-full ${p.recomendado ? "btn-primary" : "btn-outline"} !py-3.5`}
+                  className="btn-primary mt-8 w-full !h-12 !min-h-[48px] !py-0 !px-3 sm:!px-4 !text-xs sm:!text-[13px] tracking-wide whitespace-nowrap flex items-center justify-center gap-2"
                 >
                   <MessageCircle className="w-4 h-4 shrink-0" aria-hidden="true" />
-                  {p.ctaTexto}
+                  <span>{p.ctaTexto}</span>
                 </a>
               </article>
             );
