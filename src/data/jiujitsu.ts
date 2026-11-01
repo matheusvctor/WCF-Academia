@@ -2,7 +2,13 @@ import kidsImg from '@/assets/jiujitsu/jiujitsu-kids.webp';
 import femininoImg from '@/assets/jiujitsu/jiujitsu-feminino.webp';
 import individualImg from '@/assets/jiujitsu/jiujitsu-individual.webp';
 import tatameImg from '@/assets/jiujitsu/jiujitsu-tatame-horarios.webp';
-import { JiuJitsuFeature } from '@/types';
+import graduacaoEquipeImg from '@/assets/jiujitsu/graduacao-jiujitsu-equipe.webp';
+import graduacaoKidsImg from '@/assets/jiujitsu/graduacao-jiujitsu-kids.webp';
+import turmaKids1Img from '@/assets/jiujitsu/turma-jiujitsu-kids-1.webp';
+import turmaKids2Img from '@/assets/jiujitsu/turma-jiujitsu-kids-2.webp';
+import tatameMestreEquipeImg from '@/assets/jiujitsu/tatame-mestre-wilson-equipe.webp';
+import tatameMestreKidsImg from '@/assets/jiujitsu/tatame-mestre-wilson-kids.webp';
+import { JiuJitsuFeature, ImageGalleryItem } from '@/types';
 
 export const JIU_JITSU_KIDS_HERO = {
   title: 'Jiu-Jitsu Kids WCF',
@@ -57,7 +63,7 @@ export const JIU_JITSU_MODALIDADES: JiuJitsuFeature[] = [
     image: femininoImg,
     highlights: [
       'Turmas exclusivas femininas',
-      'Defesa pessoal efetiva e emponderamento',
+      'Defesa pessoal efetiva e empoderamento',
       'Alta queima calórica e condicionamento físico',
       'Treino dinâmico em ambiente respeitoso',
     ],
@@ -75,6 +81,59 @@ export const JIU_JITSU_MODALIDADES: JiuJitsuFeature[] = [
       'Graduação oficial reconhecida',
       'Vagas limitadas por turma para máxima atenção técnica',
     ],
+  },
+  {
+    title: 'Luta Livre Esportiva',
+    subtitle: 'Grappling Sem Kimono (No-Gi)',
+    badge: 'Tatame Oficial WCF',
+    description: 'Arte marcial brasileira focada em quedas, domínio posicional e finalizações dinâmicas sem o uso do kimono.',
+    image: graduacaoEquipeImg,
+    highlights: [
+      'Técnicas dinâmicas de grappling e submissão (No-Gi)',
+      'Desenvolvimento de explosão muscular, agilidade e reflexos',
+      'Excelente complemento técnico para Jiu-Jitsu e defesa pessoal',
+      'Treinos supervisionados para iniciantes e avançados',
+    ],
+  },
+  {
+    title: 'Judô',
+    subtitle: 'Tradição Olímpica • Infantil e Adulto',
+    badge: 'Formação & Quedas',
+    description: 'O caminho suave que desenvolve equilíbrio, projeções precisas, amortecimento de quedas (ukemi) e disciplina marcial.',
+    image: graduacaoKidsImg,
+    highlights: [
+      'Domínio de projeções em pé (Tachi-waza) e solo (Ne-waza)',
+      'Aprimoramento da coordenação motora, postura e equilíbrio',
+      'Filosofia de respeito mútuo, autocontrole e formação cidadã',
+      'Base técnica fundamental para todas as lutas de agarramento',
+    ],
+  },
+];
+
+export const FOTOS_TATAME: ImageGalleryItem[] = [
+  {
+    src: graduacaoEquipeImg,
+    alt: 'Graduação Oficial no Tatame WCF — Equipe completa reunida com Mestre Wilson Camara Filho',
+  },
+  {
+    src: graduacaoKidsImg,
+    alt: 'Cerimônia de Graduação Jiu-Jitsu Kids e Adulto no Tatame Oficial WCF',
+  },
+  {
+    src: turmaKids1Img,
+    alt: 'Turma Jiu-Jitsu Kids WCF — Disciplina, amizade e formação infantil no tatame',
+  },
+  {
+    src: turmaKids2Img,
+    alt: 'Alegria e evolução das crianças na turma de Jiu-Jitsu Kids da WCF Academia',
+  },
+  {
+    src: tatameMestreEquipeImg,
+    alt: 'Mestre Wilson Camara Filho e alunos das turmas de lutas no tatame WCF',
+  },
+  {
+    src: tatameMestreKidsImg,
+    alt: 'Formação marcial infantil no tatame oficial da WCF Academia',
   },
 ];
 

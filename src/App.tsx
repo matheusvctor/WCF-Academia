@@ -40,6 +40,7 @@ const App = () => (
           <Route path="/modalidades" element={<ModalidadesPage />} />
           <Route path="/pilates" element={<PilatesPage />} />
           <Route path="/jiu-jitsu" element={<JiuJitsuPage />} />
+          <Route path="/lutas" element={<JiuJitsuPage />} />
           <Route path="/equipe" element={<EquipePage />} />
           <Route path="/horarios" element={<HorariosPage />} />
           <Route path="/contato" element={<ContatoPage />} />
@@ -51,4 +52,3 @@ const App = () => (
 );
 
 export default App;
-

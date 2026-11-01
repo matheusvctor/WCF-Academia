@@ -36,7 +36,7 @@ export const NAV_LINKS = [
   { label: "Início", href: "/" },
   { label: "Modalidades", href: "/modalidades" },
   { label: "Pilates", href: "/pilates" },
-  { label: "Jiu-Jitsu", href: "/jiu-jitsu" },
+  { label: "Lutas", href: "/jiu-jitsu" },
   { label: "Equipe", href: "/equipe" },
   { label: "Planos", href: "/horarios" },
   { label: "Contato", href: "/contato" },

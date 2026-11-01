@@ -19,7 +19,14 @@ type Categoria = (typeof CATEGORIAS)[number];
 const matchCategoria = (m: Modalidade, cat: Categoria): boolean => {
   if (cat === "Todas") return true;
   if (cat === "Força & Saúde") return m.tag.includes("Força") || m.name.includes("Musculação");
-  if (cat === "Lutas & Kids") return m.name.includes("Jiu-Jitsu") || m.name.includes("Muay") || m.name.includes("Kids");
+  if (cat === "Lutas & Kids")
+    return (
+      m.name.includes("Jiu-Jitsu") ||
+      m.name.includes("Luta Livre") ||
+      m.name.includes("Judô") ||
+      m.name.includes("Muay") ||
+      m.name.includes("Kids")
+    );
   if (cat === "Bem-estar & Pilates") return m.name.includes("Pilates");
   if (cat === "Aulas Coletivas") return m.name.includes("Spinning") || m.name.includes("Step") || m.name.includes("Localizada");
   return true;
@@ -87,12 +94,13 @@ export const ModalidadesSection = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6" aria-live="polite">
           {filtered.map((m) => {
-            // Jiu-Jitsu e Pilates têm páginas dedicadas
-            const internalRoute = m.name.includes("Jiu-Jitsu")
-              ? "/jiu-jitsu"
-              : m.name.includes("Pilates")
-              ? "/pilates"
-              : null;
+            // Lutas do tatame e Pilates têm páginas dedicadas
+            const internalRoute =
+              m.name.includes("Jiu-Jitsu") || m.name.includes("Luta Livre") || m.name.includes("Judô")
+                ? "/jiu-jitsu"
+                : m.name.includes("Pilates")
+                ? "/pilates"
+                : null;
 
             const externalUrl = internalRoute
               ? null

@@ -1,5 +1,7 @@
 import jiuJitsuKidsAsset from "@/assets/jiujitsu/jiujitsu-kids.webp";
 import tatameKidsAsset from "@/assets/jiujitsu/tatame-mestre-wilson-kids.webp";
+import graduacaoEquipeAsset from "@/assets/jiujitsu/graduacao-jiujitsu-equipe.webp";
+import graduacaoKidsAsset from "@/assets/jiujitsu/graduacao-jiujitsu-kids.webp";
 import musculacaoAsset from "@/assets/musculacao/post-treino-pernas.webp";
 import studioPilatesAsset from "@/assets/pilates/studio-pilates-aula-real.webp";
 import spinningAsset from "@/assets/aulas/aula-spinning.webp";
@@ -29,6 +31,30 @@ export const MODALIDADES: Modalidade[] = [
     image: studioPilatesAsset,
   },
   {
+    name: "Jiu-Jitsu Adulto",
+    tag: "Tatame Oficial",
+    desc: "Aulas técnicas com mestre graduado, turmas masculinas e femininas com mensalidade a partir de R$ 60.",
+    image: jiuJitsuIndividualAsset,
+  },
+  {
+    name: "Luta Livre",
+    tag: "Grappling No-Gi",
+    desc: "Técnicas dinâmicas de quedas, controle posicional e finalizações sem kimono no tatame oficial WCF.",
+    image: graduacaoEquipeAsset,
+  },
+  {
+    name: "Judô",
+    tag: "Tradição & Quedas",
+    desc: "Arte marcial olímpica focada em projeções, equilíbrio, coordenação motora e formação cidadã.",
+    image: graduacaoKidsAsset,
+  },
+  {
+    name: "Muay Thai",
+    tag: "Arte Marcial",
+    desc: "Defesa, agilidade e condicionamento extremo às terças e quintas às 18h00.",
+    image: muayThaiAsset,
+  },
+  {
     name: "Spinning",
     tag: "Cardio Intenso",
     desc: "Sessões dinâmicas com bikes profissionais todas as terças às 19h30. Alta queima calórica.",
@@ -41,22 +67,10 @@ export const MODALIDADES: Modalidade[] = [
     image: stepAsset,
   },
   {
-    name: "Muay Thai",
-    tag: "Arte Marcial",
-    desc: "Defesa, agilidade e condicionamento extremo às terças e quintas às 18h00.",
-    image: muayThaiAsset,
-  },
-  {
     name: "Aula Localizada",
     tag: "Definição",
     desc: "Fortalecimento muscular e resistência localizada todas as sextas às 19h00.",
     image: localizadaAsset,
-  },
-  {
-    name: "Jiu-Jitsu Adulto",
-    tag: "Tatame Oficial",
-    desc: "Aulas técnicas com mestre graduado, turmas masculinas e femininas com mensalidade a partir de R$ 60.",
-    image: jiuJitsuIndividualAsset,
   },
   {
     name: "Espaço Kids",

@@ -1,8 +1,8 @@
 import studioBanner from "@/assets/banners/banner-pilates-qualidade.webp";
 import studioPilatesAula from "@/assets/pilates/studio-pilates-aula-real.webp";
 import studioPilatesCadillac from "@/assets/pilates/studio-pilates-cadillac.webp";
+import turmaPilatesStudio from "@/assets/pilates/turma-pilates-studio.webp";
 import soloPoster from "@/assets/aulas/aula-pilates-solo.webp";
-import longevidadeBanner from "@/assets/banners/banner-saude-longevidade.webp";
 import { ImageGalleryItem } from "@/types";
 
 export const PILATES_STUDIO_INFO = {
@@ -40,6 +40,7 @@ export const PILATES_STUDIO_INFO = {
 };
 
 export const FOTOS_PILATES: ImageGalleryItem[] = [
+  { src: turmaPilatesStudio, alt: "Turma do WCF Studio Pilates reunida com o Mestre Wilson Camara e instrutores" },
   { src: studioPilatesAula, alt: "Aulas de Studio Pilates nos aparelhos Reformer na WCF" },
   { src: studioPilatesCadillac, alt: "Aparelho Cadillac com treino de controle motor e flexibilidade" },
   { src: soloPoster, alt: "Pôster oficial de Pilates Solo e Alongamento com Romero Mota" },

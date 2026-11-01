@@ -1,13 +1,20 @@
-import { useState } from 'react';
-import { MessageCircle, ShieldCheck, Brain, Sparkles, HeartHandshake, CheckCircle2, Calendar, Clock, Trophy, Award, GraduationCap, ZoomIn, IdCard, Users } from 'lucide-react';
+import { useState, useRef } from 'react';
+import Autoplay from 'embla-carousel-autoplay';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
+import { MessageCircle, ShieldCheck, Brain, Sparkles, HeartHandshake, CheckCircle2, Calendar, Clock, Trophy, Award, GraduationCap, ZoomIn, IdCard, Users, Camera } from 'lucide-react';
 import { SectionHeader } from '@/components/common/SectionHeader';
-import { JIU_JITSU_KIDS_HERO, JIU_JITSU_MODALIDADES, JIU_JITSU_TATAME_INFO } from '@/data/jiujitsu';
+import { JIU_JITSU_KIDS_HERO, JIU_JITSU_MODALIDADES, JIU_JITSU_TATAME_INFO, FOTOS_TATAME } from '@/data/jiujitsu';
 import { getWhatsAppUrl } from '@/constants/site';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import wilsonCamaraImg from '@/assets/wilson-camara.webp';
 import wilsonCarteirinhaImg from '@/assets/wilson-carteirinha.webp';
 import tatameKidsImg from '@/assets/jiujitsu/tatame-mestre-wilson-kids.webp';
-import tatameEquipeImg from '@/assets/jiujitsu/tatame-mestre-wilson-equipe.webp';
 
 const ICON_MAP = {
   Brain,
@@ -18,6 +25,9 @@ const ICON_MAP = {
 
 export const JiuJitsuKidsSection = () => {
   const [selectedImg, setSelectedImg] = useState<string | null>(null);
+  const autoplay = useRef(
+    Autoplay({ delay: 3500, stopOnInteraction: false, stopOnMouseEnter: true })
+  );
 
   return (
     <section id="jiu-jitsu-kids" className="py-16 md:py-24 border-t border-border/50 relative overflow-hidden bg-background section-optimized">
@@ -28,13 +38,13 @@ export const JiuJitsuKidsSection = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <SectionHeader
-          label="Tatame WCF • Formação e Família"
+          label="Tatame WCF • Jiu-Jitsu, Luta Livre & Judô"
           title={
             <>
-              Jiu-Jitsu Kids: <span className="text-gradient-red">Disciplina e Autoconfiança</span> para a Vida Inteira.
+              Artes Marciais WCF: <span className="text-gradient-red">Disciplina e Autoconfiança</span> para a Vida Inteira.
             </>
           }
-          description="Metodologia esportiva que une técnica marcial, respeito e diversão em um ambiente 100% seguro e acolhedor para crianças e jovens."
+          description="Metodologia esportiva completa com Jiu-Jitsu, Luta Livre e Judô, unindo técnica marcial, respeito e evolução em um ambiente 100% seguro e familiar."
           className="mb-12"
         />
 
@@ -71,7 +81,7 @@ export const JiuJitsuKidsSection = () => {
                   Mais que um esporte: uma escola de valores.
                 </h3>
                 <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                  O Jiu-Jitsu infantil da WCF Academia canaliza a energia das crianças de forma produtiva.
+                  O ensino marcial infantil da WCF Academia canaliza a energia das crianças de forma produtiva.
                   Aqui elas aprendem que a verdadeira força está no autocontrole, na humildade e na capacidade de superar desafios com resiliência.
                 </p>
               </div>
@@ -118,18 +128,18 @@ export const JiuJitsuKidsSection = () => {
           </div>
         </div>
 
-        {/* Modalidades do Tatame: Kids, Feminino e Individual */}
+        {/* Modalidades do Tatame: Jiu-Jitsu (Kids, Feminino, Adulto), Luta Livre e Judô */}
         <div className="mb-16">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <h3 className="text-xl sm:text-2xl font-heading font-bold text-foreground mb-2">
-              Programas Oficiais de Artes Marciais WCF
+              Modalidades de Lutas no Tatame WCF
             </h3>
             <p className="text-sm text-muted-foreground">
-              Turmas segmentadas para que cada atleta treine com pessoas no mesmo estágio e objetivos alinhados.
+              Jiu-Jitsu, Luta Livre Esportiva e Judô com turmas segmentadas para crianças, mulheres e adultos em todos os níveis.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {JIU_JITSU_MODALIDADES.map((m, idx) => (
               <div
                 key={idx}
@@ -192,6 +202,63 @@ export const JiuJitsuKidsSection = () => {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Galeria Real: Graduações e Turmas no Tatame WCF */}
+        <div className="mb-16">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
+            <div>
+              <span className="inline-flex items-center gap-1.5 text-xs font-heading uppercase tracking-widest text-primary mb-1">
+                <Camera className="w-3.5 h-3.5" /> Vivência no Tatame
+              </span>
+              <h3 className="font-heading text-xl sm:text-2xl font-bold text-foreground">
+                Graduações & Turmas Kids e Adulto
+              </h3>
+              <p className="text-xs sm:text-sm text-muted-foreground">
+                Registros reais das nossas cerimônias de graduação, treinos infantis e união da família WCF.
+              </p>
+            </div>
+          </div>
+
+          <Carousel
+            opts={{ loop: true, align: 'start' }}
+            plugins={[autoplay.current]}
+            className="w-full relative"
+          >
+            <CarouselContent className="-ml-3">
+              {FOTOS_TATAME.map((foto, i) => (
+                <CarouselItem
+                  key={i}
+                  className="pl-3 basis-[85%] sm:basis-1/2 lg:basis-1/3"
+                >
+                  <div
+                    className="overflow-hidden rounded-2xl border border-border aspect-[4/3] bg-card cursor-pointer group relative shadow-lg"
+                    onClick={() => setSelectedImg(foto.src)}
+                  >
+                    <img
+                      src={foto.src}
+                      alt={foto.alt}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                      <div className="flex items-center justify-between w-full text-white gap-2">
+                        <span className="text-xs font-heading font-semibold line-clamp-2">
+                          {foto.alt}
+                        </span>
+                        <div className="w-8 h-8 rounded-full bg-red-600 flex items-center justify-center shrink-0 shadow-md">
+                          <ZoomIn className="w-4 h-4 text-white" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden md:flex -left-4" />
+            <CarouselNext className="hidden md:flex -right-4" />
+          </Carousel>
         </div>
 
         {/* Bloco de Autoridade: Liderança e Supervisão do Mestre Wilson Camara Filho */}
@@ -280,13 +347,13 @@ export const JiuJitsuKidsSection = () => {
                 </div>
                 <div className="p-3 rounded-xl bg-background/60 border border-white/[0.06] flex items-center gap-2.5">
                   <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span className="text-xs font-medium text-foreground">Metodologia Antibullying e Família</span>
+                  <span className="text-xs font-medium text-foreground">Jiu-Jitsu, Luta Livre & Judô</span>
                 </div>
               </div>
 
               <div className="pt-2">
                 <a
-                  href={getWhatsAppUrl("Olá Mestre Wilson! Gostaria de agendar uma aula experimental de Jiu-Jitsu na WCF Academia!")}
+                  href={getWhatsAppUrl("Olá Mestre Wilson! Gostaria de agendar uma aula experimental de Lutas na WCF Academia!")}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary !py-3.5 !px-7 text-xs font-heading font-bold inline-flex items-center gap-2"
@@ -307,10 +374,10 @@ export const JiuJitsuKidsSection = () => {
                 <Calendar className="w-4 h-4" /> Grade Semanal do Tatame
               </div>
               <h3 className="text-xl sm:text-2xl font-heading font-bold text-foreground">
-                Horários de Treino de Jiu-Jitsu (Adulto e Kids)
+                Horários de Treino no Tatame (Jiu-Jitsu, Luta Livre & Judô)
               </h3>
               <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                Aulas ministradas por instrutores graduados com aquecimento neuromuscular, fundamentos técnicos e rola supervisionado.
+                Aulas ministradas por instrutores graduados com aquecimento neuromuscular, fundamentos técnicos, quedas e lutas supervisionadas.
               </p>
 
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
@@ -334,7 +401,7 @@ export const JiuJitsuKidsSection = () => {
               >
                 <img
                   src={JIU_JITSU_TATAME_INFO.image}
-                  alt="Horários de Jiu-Jitsu WCF"
+                  alt="Horários de Lutas e Jiu-Jitsu WCF"
                   className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
@@ -346,12 +413,12 @@ export const JiuJitsuKidsSection = () => {
         {/* Modal de visualização de imagem em tamanho grande */}
         <Dialog open={!!selectedImg} onOpenChange={(open) => !open && setSelectedImg(null)}>
           <DialogContent className="max-w-2xl p-2 bg-card/95 backdrop-blur-xl border border-border">
-            <DialogTitle className="sr-only">Visualização do Tatame e Jiu-Jitsu WCF</DialogTitle>
-            <DialogDescription className="sr-only">Foto ampliada das turmas de Jiu-Jitsu Kids, Feminino e Adulto</DialogDescription>
+            <DialogTitle className="sr-only">Visualização do Tatame e Lutas WCF</DialogTitle>
+            <DialogDescription className="sr-only">Foto ampliada das turmas de Jiu-Jitsu, Luta Livre e Judô</DialogDescription>
             {selectedImg && (
               <img
                 src={selectedImg}
-                alt="Visualização ampliada do Pôster WCF"
+                alt="Visualização ampliada do Tatame WCF"
                 className="w-full h-auto rounded-xl max-h-[85vh] object-contain mx-auto"
               />
             )}
